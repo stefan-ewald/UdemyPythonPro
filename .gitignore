@@ -4,8 +4,11 @@
 slides/
 .benchmarks/
 
+Chapter1_Intro/
+
 *.png
 *.log
+*.pptx
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
