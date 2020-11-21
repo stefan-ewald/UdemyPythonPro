@@ -1,5 +1,5 @@
-"""Own implementation of a 2D vector class.
-"""
+'''Own implementation of a 2D vector class.
+'''
 import numbers
 from functools import total_ordering
 from math import sqrt
@@ -7,11 +7,11 @@ from math import sqrt
 
 @total_ordering
 class Vector2D:
-    """Vector2D class to perform simple vector operations.
-    """
+    '''Vector2D class to perform simple vector operations.
+    '''
 
     def __init__(self, x=0, y=0):
-        """Create a vector with the given x and y values.
+        '''Create a vector with the given x and y values.
 
         Args:
             x (number): x-Coordinate. Defaults to 0.
@@ -19,7 +19,7 @@ class Vector2D:
 
         Raises:
             TypeError: If x or y is not a number.
-        """
+        '''
         if isinstance(x, numbers.Real) and isinstance(y, numbers.Real):
             self.x = x
             self.y = y
@@ -27,12 +27,12 @@ class Vector2D:
             raise TypeError('You must pass in int/float values for x and y!')
 
     def __call__(self):
-        """Callable function for a vector instance.
+        '''Callable function for a vector instance.
 
         Returns:
             str: Representation of the vector instance.
-        """
-        print("Calling the __call__ function!")
+        '''
+        print('Calling the __call__ function!')
         return self.__repr__()
 
     def __repr__(self):

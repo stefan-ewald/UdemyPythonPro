@@ -10,14 +10,14 @@ def log(fn):
         kwargs_values_types = [(k, v, type(v)) for k, v in kwargs.items()]
         arguments = args_values_types + kwargs_values_types
         time = datetime.utcnow()
-        time = time.strftime("%H:%M:%S")
+        time = time.strftime('%H:%M:%S')
         try:
             fn_result = fn(*args, **kwargs)
-            print("Function {} was called at {} with params {} and returned {}".format(
+            print('Function {} was called at {} with params {} and returned {}'.format(
                 fn.__name__, time, arguments, fn_result))
             return fn_result
         except Exception as e:
-            print("Function {} was called at {} with params {} and raised an exception {}".format(
+            print('Function {} was called at {} with params {} and raised an exception {}'.format(
                 fn.__name__, time, arguments, e))
     return logger
 
@@ -34,5 +34,5 @@ def main():
         print(divide_integers(10, 0))
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

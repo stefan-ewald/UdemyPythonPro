@@ -1,3 +1,6 @@
+# Libraries
+loguru
+
 # Linting/Tooling
 pylint
 flake8
@@ -6,3 +9,15 @@ isort
 black
 autopep8
 pre-commit
+
+# Testing
+pytest
+codecov
+pytest-cov
+tox
+
+# Documentation
+Sphinx
+Pygments
+numpydoc
+sphinx_rtd_theme

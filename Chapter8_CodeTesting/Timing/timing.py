@@ -1,5 +1,5 @@
-"""Test code.
-"""
+'''Test code.
+'''
 import random
 import time
 from functools import wraps
@@ -15,7 +15,7 @@ def timing(fn):
         fn_result = fn(*args, **kwargs)
         end_time = time.perf_counter()
         time_duration = end_time - start_time
-        print("Function {} took: {} s".format(fn.__name__, time_duration))
+        print('Function {} took: {} s'.format(fn.__name__, time_duration))
         return fn_result
     return timer
 
@@ -41,15 +41,15 @@ import random
 from vector import Vector2D
 '''
     timer = Timer(code_str, setup=import_str)
-    print("Mean computation time: {}".format(sum(timer.repeat(repeat=3, number=100_000)) / 3))
+    print('Mean computation time: {}'.format(sum(timer.repeat(repeat=3, number=100_000)) / 3))
 
 
 def main():
-    print("Own timer implementation: ")
+    print('Own timer implementation: ')
     test_addition_own_implementation()
-    print("Standard lib timer implementation: ")
+    print('Standard lib timer implementation: ')
     test_addition_standard_bib()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

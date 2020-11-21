@@ -25,5 +25,5 @@ from third_party import lib14
 from third_party import lib15
 
 
-print("Hey")
-print("yo")
+print('Hey')
+print('yo')

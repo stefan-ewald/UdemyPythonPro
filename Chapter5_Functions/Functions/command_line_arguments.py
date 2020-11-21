@@ -16,5 +16,5 @@ def main():
         print(arg_name, arg_val, type(arg_val))
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

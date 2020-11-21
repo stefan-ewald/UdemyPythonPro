@@ -16,7 +16,7 @@ class Vector2D:
             raise TypeError('You must pass in int/float values for x and y!')
 
     def __call__(self):
-        print("Calling the __call__ function!")
+        print('Calling the __call__ function!')
         return self.__repr__()
 
     def __repr__(self):

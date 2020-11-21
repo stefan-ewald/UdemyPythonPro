@@ -1,5 +1,5 @@
-"""Test code.
-"""
+'''Test code.
+'''
 import cProfile
 import io
 import pstats
@@ -36,5 +36,5 @@ def main():
     test_addition_own_implementation()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

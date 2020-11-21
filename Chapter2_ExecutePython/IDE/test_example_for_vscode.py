@@ -58,7 +58,7 @@ print(my_list2)
 my_list2_comp = [i**2 for i in range(100) if i % 2 == 0]
 my_list2_comp2 = [i for i in range(100) if i % 2 == 0]
 print(my_list2_comp)
-print("\n")
+print('\n')
 print(my_list2_comp2)
 
 # Numpy

@@ -1,5 +1,5 @@
-"""Test code.
-"""
+'''Test code.
+'''
 from vector_type_annotations import Vector2D
 
 
@@ -12,5 +12,5 @@ def main():
     v1 * 'bye'
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

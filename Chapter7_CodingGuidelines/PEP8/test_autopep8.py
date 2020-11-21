@@ -15,7 +15,7 @@ class Vector2D:
                 'You must pass in int/float values for x and y!')
 
     def __call__(self):
-        print("Calling the __call__ function!")
+        print('Calling the __call__ function!')
         return self.__repr__()
 
     def __repr__(self):
@@ -60,10 +60,10 @@ class Vector2D:
             y = self.y - other_vector.y
             return Vector2D(x, y)
         except AttributeError as e:
-            print("AttributeError: {} was raised!".format(e))
+            print('AttributeError: {} was raised!'.format(e))
             return self
         except Exception as e:
-            print("Exception {}: {} was raised!".format(type(e), e))
+            print('Exception {}: {} was raised!'.format(type(e), e))
 
     def __mul__(self, other):
         if isinstance(other, Vector2D):

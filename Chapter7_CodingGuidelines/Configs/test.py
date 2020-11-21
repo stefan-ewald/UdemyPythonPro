@@ -37,12 +37,12 @@ def inner_product(v: Vec[T]) -> T:
 
 
 def main():
-    l = [1, 2, 3]
-    print_sequence_values(l)
-    d = {'a': 1, 'b': 2}
-    print_sequence_values(d)
-    t = (1, 2, 3)
-    print_sequence_values(t)
+    l1 = [1, 2, 3]
+    print_sequence_values(l1)
+    d1 = {'a': 1, 'b': 2}
+    print_sequence_values(d1)
+    t1 = (1, 2, 3)
+    print_sequence_values(t1)
 
     users = {'1234': 'jan'}
     u1 = '1234'
@@ -52,9 +52,9 @@ def main():
     # u3 = []
     # print_user_id1(users, u3)
 
-    v = [[1, 1],
-         [2, 2]]
-    print(inner_product(v))
+    v1 = [[1, 1],
+          [2, 2]]
+    print(inner_product(v1))
 
 
 if __name__ == '__main__':
