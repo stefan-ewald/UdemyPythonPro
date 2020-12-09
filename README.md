@@ -3,8 +3,8 @@
 Dies ist der Code zu meinem Udemy Kurs:
 *Fortgeschrittene Python Programmierung* von Jan Schaffranek.
 
-Erhalte den Kurs vom 7.11.2020 bis zum 7.12.2020 für nur 16,99€*.
-Rabatt-Link: [PythonPro Kurs im Rabatt](https://www.udemy.com/course/fortgeschrittene-python-programmierung/?couponCode=FRANNECK_NOV_2020)
+Erhalte den Kurs vom 01.12.2020 bis zum 31.12.2020 zum aktuellen Bestpreis.
+Rabatt-Link: [PythonPro Kurs im Rabatt](https://www.udemy.com/course/fortgeschrittene-python-programmierung/?couponCode=FRANNECK_DEC_2020)
 
 ## Bewertungen von Kursteilnehmern
 
@@ -41,11 +41,8 @@ Natürlich geht es aber nicht darum, dass ihr bereits alles wisst, aber folgende
 - Die Einbindung von Cython
 - Multiprocessing und Multithreading in Python
 
-### Warum sollte man in Python programmieren
-
-Die Programmiersprache Python  wird von einigen Big Playern weltweit genutzt, darunter sind z. B. Twitter, SAP, IBM, Intel und Google!
-
-Werde noch heute ein Profi, in der Technologie von Morgen!Wir sehen uns im Kurs!
+Werde noch heute ein Profi, in der Technologie von Morgen!
+Wir sehen uns im Kurs!
 
 
 \* Alle Angaben ohne Gewähr
