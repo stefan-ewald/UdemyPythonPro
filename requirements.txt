@@ -6,7 +6,6 @@ pylint
 flake8
 mypy
 isort
-black
 autopep8
 pre-commit
 
