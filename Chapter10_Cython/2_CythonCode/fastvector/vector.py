@@ -1,4 +1,4 @@
-'''Own implementation of a ND vector class.
+'''VectorND class implementation.
 '''
 from __future__ import annotations
 
@@ -7,12 +7,10 @@ import numbers
 from functools import total_ordering
 from math import sqrt
 from typing import Any
-from typing import List
 from typing import Union
 
 from .dtypes import Number
-from .dtypes import Values
-from .dtypes import float64
+from .dtypes import float32
 
 
 @total_ordering
@@ -20,161 +18,129 @@ class VectorND:
     '''VectorND class to perform simple vector operations.
     '''
 
-    def __init__(self, *args, dtype=float64):
-        '''Creates a vector instance with the given x and y values.
+    def __init__(self, *args: Any, dtype: Any = float32) -> None:
+        '''Create a vector instance with the given x and y values.
 
-        Parameters
-        ----------
-        args : tuple
-            The vector values.
-        dtype : str
-            The dtype of the underlying array.
+        Args:
+            args (Any): The vector values.
+            dtype (Any): The dtype of the underlying arry. Defaults to 'float32'.
 
-        Raises
-        ------
-        TypeError
-            If x or y are not a number.
+        Raises:
+            TypeError: If x or y are not a number.
         '''
-        # Values are passed in as a list
         if len(args) == 1 and isinstance(args[0], list):
             self.values = array.array(dtype, args[0])
-        # Values are passed in as optinal arguments
         elif len(args) > 0:
             values = [val for val in args]
             self.values = array.array(dtype, values)
         else:
-            raise TypeError('You must pass in an list of numbers, or numbers as a args tuple!')
+            raise TypeError('You must pass in a tuple or list of values!')
 
     def __call__(self) -> str:
-        '''Callable for the vector instance to return its representation.
+        '''Callable for the vector instance representation.
 
-        Returns
-        -------
-        str
-            The representation of the vector instance.
+        Returns:
+            str: The representation of the vector instance.
         '''
         print('Calling the __call__ function!')
         return self.__repr__()
 
     def __repr__(self) -> str:
-        '''The vector instance representation.
+        '''Return the vector instance representation.
 
-        Returns
-        -------
-        str
-            The representation of the vector instance.
+        Returns:
+            str: The representation of the vector instance.
         '''
-        return 'vector.VectorND({})'.format(self.values)
+        return f'vector.VectorND({self.values})'
 
     def __str__(self) -> str:
         '''The vector instance as a string.
 
-        Returns
-        -------
-        str
-            The vector instance as a string.
+        Returns:
+            str: The vector instance as a string.
         '''
-        return '({})'.format(self.values)
+        return f'({self.values})'
 
     def __len__(self) -> int:
-        '''Returns the length of the ND vector
+        '''Return the length of the vector.
 
-        Returns
-        -------
-        int
-            The length for a ND vector is always 2.
+        Returns:
+            int: The vector length.
         '''
         return len(self.values)
 
-    def __getitem__(self, idx) -> Number:
-        '''Returns the vector item at index idx.
+    def __getitem__(self, idx: int) -> Number:
+        '''Return the vector item at index *idx*.
 
-        Parameters
-        ----------
-        idx : int
-            The index idx
+        Args:
+            idx (int): The vector index.
 
-        Returns
-        -------
-        number
-            If idx < len: returns the value.
-            Else, IndexError.
+        Raises:
+            IndexError: If an invalid index is passed in.
+
+        Returns:
+            Number: Vector value at index *idx*.
         '''
-        if idx < len(self):
+        if 0 <= idx < len(self.values):
             return self.values[idx]
         else:
-            raise IndexError('You can only pass in an index of 0 or 1!')
+            raise IndexError('Invalid index!')
 
     def __setitem__(self, idx: int, val: Number) -> None:
-        '''Returns the vector item at index idx.
+        '''Set the vector item at index *idx*.
 
-        Parameters
-        ----------
-        idx : int
-            The index idx
-        val : nunmber
-            The new value at index idx
+        Args:
+            idx (int): The vector index.
+            val (Number): The vector value to set.
+
+        Raises:
+            IndexError: If an invalid index is passed in.
         '''
-        if idx < len(self):
+        if 0 <= idx < len(self.values):
             self.values[idx] = val
         else:
-            raise IndexError('You can only use an index of 0 or 1!')
+            raise IndexError('Invalid index!')
 
     def __bool__(self) -> bool:
-        '''Returns the truth value of the vector instance.
+        '''Return the truth value of the vector instance.
 
-        Returns
-        -------
-        bool
-            True, if the vector is not the Null-vector
-            False, else
+        Returns:
+            bool: True, if the vector is not the Null-vector. False, else.
         '''
         return bool(abs(self))
 
     def __abs__(self) -> float:
-        '''Returns the length (magnitude) of the vector instance
+        '''Return the length (magnitude) of the vector instance.
 
-        Returns
-        -------
-        float
-            Length of the vector instance.
+        Returns:
+            float: Length of the vector instance.
         '''
         square_sum = sum([val**2.0 for val in self.values])
         return sqrt(square_sum)
 
-    def __eq__(self, other_vector: Any) -> bool:
+    def __eq__(self, other_vector: object) -> bool:
         '''Check if the vector instances have the same values.
 
-        Parameters
-        ----------
-        other_vector : VectorND
-            Other vector instance (right-hand-side of the operator)
+        Args:
+            other_vector (object): Other vector instance (right-hand-side of the operator)
 
-        Returns
-        -------
-        bool
-            True, if the both vector instances have the same values.
-            False, else.
+        Returns:
+            bool: True, if the both vector instances have the same values. False, else.
         '''
-        self.check_vector_types(other_vector)
         is_equal = False
-        if self.values == other_vector.values:
-            is_equal = True
+        if isinstance(other_vector, VectorND):
+            if self.values == other_vector.values:
+                is_equal = True
         return is_equal
 
     def __lt__(self, other_vector: VectorND) -> bool:
         '''Check if the self instance is less than the other vector instance.
 
-        Parameters
-        ----------
-        other_vector : VectorND
-            Other vector instance (right-hand-side of the operator)
+        Args:
+            other_vector (VectorND): Other vector instance (right-hand-side of the operator).
 
-        Returns
-        -------
-        bool
-            True, if the self instance is less than the other vector instance.
-            False, else.
+        Returns:
+            bool: True, if the self instance is less than the other vector instance. False, else.
         '''
         self.check_vector_types(other_vector)
         is_less_than = False
@@ -185,99 +151,82 @@ class VectorND:
     def __add__(self, other_vector: VectorND) -> VectorND:
         '''Returns the additon vector of the self and the other vector instance.
 
-        Parameters
-        ----------
-        other_vector : VectorND
-            Other vector instance (right-hand-side of the operator)
+        Args:
+            other_vector (VectorND): Other vector instance (right-hand-side of the operator).
 
-        Returns
-        -------
-        VectorND
-            The additon vector of the self and the other vector instance
+        Returns:
+            VectorND: The additon vector of the self and the other vector instance.
         '''
         self.check_vector_types(other_vector)
         add_result = [self_val + other_val for self_val, other_val in zip(self.values, other_vector.values)]
         return VectorND(add_result)
 
     def __sub__(self, other_vector: VectorND) -> VectorND:
-        '''Returns the subtraction vector of the self and the other vector instance.
+        '''Return the subtraction vector of the self and the other vector instance.
 
-        Parameters
-        ----------
-        other_vector : VectorND
-            Other vector instance (right-hand-side of the operator)
+        Args:
+            other_vector (VectorND): Other vector instance (right-hand-side of the operator).
 
-        Returns
-        -------
-        VectorND
-            The subtraction vector of the self and the other vector instance
+        Returns:
+            VectorND: The subtraction vector of the self and the other vector instance.
         '''
         self.check_vector_types(other_vector)
         sub_result = [self_val - other_val for self_val, other_val in zip(self.values, other_vector.values)]
         return VectorND(sub_result)
 
-    def __mul__(self, other: Union[VectorND, Number]) -> Union[VectorND, Number]:
-        '''Returns the multiplication of the self vector and the other vector(or number) instance.
+    def __mul__(self, other: Union[Number, VectorND]) -> Union[Number, VectorND]:
+        '''Return the multiplication of the self vector and the other vector(or number) instance.
 
-        Parameters
-        ----------
-        other : VectorND or number
-            Other vector instance or scaler value (right-hand-side of the operator)
+        Args:
+            other (Union[Number, VectorND]): Other vector instance or scaler
+                value (right-hand-side of the operator)
 
-        Returns
-        -------
-        VectorND
-            The multiplication of the self vector and the other vector(or number) instance
+        Raises:
+            TypeError: Not int/float passed in.
+
+        Returns:
+            Union[Number, VectorND]: The multiplication of the self vector and the other
+                vector(or number) instance.
         '''
         if isinstance(other, VectorND):
-            vector_dot = sum([self_val * other_val for self_val, other_val in zip(self.values, other.values)])
-            return vector_dot
+            return sum([self_val * other_val for self_val, other_val in zip(self.values, other.values)])
         elif isinstance(other, numbers.Real):
-            vector_mul = [val * other for val in self.values]
-            return VectorND(vector_mul)
+            mul_result = [val * other for val in self.values]
+            return VectorND(mul_result)
         else:
             raise TypeError('You must pass in a vector instance or an int/float number!')
 
     def __truediv__(self, other: Number) -> VectorND:
-        '''Returns the multiplication of the self vector and the other vector(or number) instance.
+        '''Return the multiplication of the self vector and the other vector(or number) instance.
 
-        Parameters
-        ----------
-        other : VectorND or number
-            Other vector instance or scaler value (right-hand-side of the operator)
+        Args:
+            other: Other vector instance or scaler value (right-hand-side of the operator).
 
-        Returns
-        -------
-        VectorND
-            The multiplication of the self vector and the other vector(or number) instance
+        Raises:
+            ValueError: Division by zero.
+            TypeError: Not int/float passed in.
+
+        Returns:
+            Number: The multiplication of the self vector and the other vector(or number) instance.
         '''
         if isinstance(other, numbers.Real):
             if other != 0.0:
-                vector_div = [val / other for val in self.values]
-                return VectorND(vector_div)
+                div_result = [val / other for val in self.values]
+                return VectorND(div_result)
             else:
                 raise ValueError('You cannot divide by zero!')
         else:
             raise TypeError('You must pass in an int/float value!')
 
     @staticmethod
-    def check_numeric_argument(argument: Number):
-        if not isinstance(argument, numbers.Real):
-            raise TypeError('You must pass in an int/float value!')
+    def check_vector_types(vector: object) -> None:
+        '''Check if the vector is an instance of the VectorND class.
 
-    @staticmethod
-    def check_vector_types(vector: VectorND):
-        '''Checks if the vector is an instance of the VectorND class.
+        Args:
+            vector (object): A vector instance.
 
-        Parameters
-        ----------
-        vector : VectorND
-            A vector instance.
-
-        Raises
-        ------
-        TypeError
-            If vector is not an instance of the VectorND class.
+        Raises:
+            TypeError: If vector is not an instance of the VectorND class.
         '''
         if not isinstance(vector, VectorND):
             raise TypeError('You have to pass in two instances of the vector class!')

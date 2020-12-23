@@ -1,4 +1,4 @@
-'''Own implementation of a ND vector class.
+'''VectorND class implementation.
 '''
 from __future__ import annotations
 
@@ -16,24 +16,23 @@ class VectorND:
     '''VectorND class to perform simple vector operations.
     '''
 
-    def __init__(self, *args: Any, dtype: Any = 'd'):
+    def __init__(self, *args: Any, dtype: Any = 'd') -> None:
         '''Create a vector instance with the given x and y values.
 
         Args:
             args (Any): The vector values.
-            dtype (Any, optional): The dtype of the underlying array. Defaults to b.
+            dtype (Any): The dtype of the underlying arry. Defaults to 'd'.
 
         Raises:
             TypeError: If x or y are not a number.
         '''
-        # Values are passed in as a list
         if len(args) == 1 and isinstance(args[0], list):
             self.values = array.array(dtype, args[0])
         elif len(args) > 0:
             values = [val for val in args]
             self.values = array.array(dtype, values)
         else:
-            raise TypeError('You must pass in int/float values for x and y!')
+            raise TypeError('You must pass in a tuple or list of values!')
 
     def __call__(self) -> str:
         '''Callable for the vector instance representation.
@@ -69,32 +68,36 @@ class VectorND:
         return len(self.values)
 
     def __getitem__(self, idx: int) -> SupportsFloat:
-        '''Return the vector item at index idx.
+        '''Return the vector item at index *idx*.
 
         Args:
-            idx (int): The index idx.
-
-        Returns:
-            SupportsFloat: If idx < len: returns the value. IndexError, else.
-        '''
-        if 0 <= idx < len(self):
-            return self.values[idx]
-        raise IndexError('Invalid index value!')
-
-    def __setitem__(self, idx: int, val: SupportsFloat) -> None:
-        '''Return the vector item at index idx.
-
-        Args:
-            idx (int): The index idx.
-            val (SupportsFloat): The new value at index idx.
+            idx (int): The vector index.
 
         Raises:
-            IndexError: If idx >= len.
+            IndexError: If an invalid index is passed in.
+
+        Returns:
+            SupportsFloat: Vector value at index *idx*.
         '''
-        if 0 <= idx < len(self):
+        if 0 <= idx < len(self.values):
+            return self.values[idx]
+        else:
+            raise IndexError('Invalid index!')
+
+    def __setitem__(self, idx: int, val: SupportsFloat) -> None:
+        '''Set the vector item at index *idx*.
+
+        Args:
+            idx (int): The vector index.
+            val (SupportsFloat): The vector value to set.
+
+        Raises:
+            IndexError: If an invalid index is passed in.
+        '''
+        if 0 <= idx < len(self.values):
             self.values[idx] = val
         else:
-            raise IndexError('Invalid index value!')
+            raise IndexError('Invalid index!')
 
     def __bool__(self) -> bool:
         '''Return the truth value of the vector instance.
@@ -166,10 +169,10 @@ class VectorND:
             VectorND: The subtraction vector of the self and the other vector instance.
         '''
         self.check_vector_types(other_vector)
-        add_result = [self_val - other_val for self_val, other_val in zip(self.values, other_vector.values)]
-        return VectorND(add_result)
+        sub_result = [self_val - other_val for self_val, other_val in zip(self.values, other_vector.values)]
+        return VectorND(sub_result)
 
-    def __mul__(self, other: Union[VectorND, SupportsFloat]) -> Union[VectorND, SupportsFloat]:
+    def __mul__(self, other: Union[SupportsFloat, VectorND]) -> Union[SupportsFloat, VectorND]:
         '''Return the multiplication of the self vector and the other vector(or number) instance.
 
         Args:
@@ -184,8 +187,7 @@ class VectorND:
                 vector(or number) instance.
         '''
         if isinstance(other, VectorND):
-            vector_dot = sum([self_val * other_val for self_val, other_val in zip(self.values, other.values)])
-            return vector_dot
+            return sum([self_val * other_val for self_val, other_val in zip(self.values, other.values)])
         elif isinstance(other, numbers.Real):
             mul_result = [val * other for val in self.values]
             return VectorND(mul_result)
@@ -207,15 +209,15 @@ class VectorND:
         '''
         if isinstance(other, numbers.Real):
             if other != 0.0:
-                mul_result = [val / other for val in self.values]
-                return VectorND(mul_result)
+                div_result = [val / other for val in self.values]
+                return VectorND(div_result)
             else:
                 raise ValueError('You cannot divide by zero!')
         else:
             raise TypeError('You must pass in an int/float value!')
 
     @staticmethod
-    def check_vector_types(vector: object):
+    def check_vector_types(vector: object) -> None:
         '''Check if the vector is an instance of the VectorND class.
 
         Args:
@@ -225,4 +227,4 @@ class VectorND:
             TypeError: If vector is not an instance of the VectorND class.
         '''
         if not isinstance(vector, VectorND):
-            raise TypeError('You have to pass in an instances of the vector class!')
+            raise TypeError('You have to pass in two instances of the vector class!')

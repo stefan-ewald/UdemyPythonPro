@@ -1,3 +1,3 @@
-# FastVector Package
+# FastVector
 
-This is a simple vector package.
+This is a simple vector python package.
