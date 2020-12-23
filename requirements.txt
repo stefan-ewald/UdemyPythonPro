@@ -1,22 +1,23 @@
 # Libraries
 loguru
 
-# Linting/Tooling
-pylint
-flake8
-mypy
-isort
-autopep8
-pre-commit
-
 # Testing
 pytest
 codecov
 pytest-cov
 tox
+pre-commit
+pytest-benchmark
+
+# Linting
+flake8
+pylint
+mypy
+autopep8
+isort
 
 # Documentation
-Sphinx
+mkdocs
+mkdocstrings
+mkdocs-material
 Pygments
-numpydoc
-sphinx_rtd_theme
