@@ -1,4 +1,4 @@
-'''Test code.
+'''Test vector.
 '''
 import unittest
 

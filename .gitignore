@@ -3,6 +3,7 @@
 **/**/.vscode/
 slides/
 .benchmarks/
+*.isorted
 
 Chapter1_Intro/
 

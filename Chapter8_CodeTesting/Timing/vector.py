@@ -146,15 +146,15 @@ class Vector2D:
         '''Return the multiplication of the self vector and the other vector(or number) instance.
 
         Args:
-            other (Union[SupportsFloat, Vector2D]): Other vector instance or scaler value
-            (right-hand-side of the operator)
+            other (Union[SupportsFloat, Vector2D]): Other vector instance or scaler
+                value (right-hand-side of the operator)
 
         Raises:
             TypeError: Not int/float passed in.
 
         Returns:
             Union[SupportsFloat, Vector2D]: The multiplication of the self vector and the other
-            vector(or number) instance.
+                vector(or number) instance.
         '''
         if isinstance(other, Vector2D):
             return self.x * other.x + self.y * other.y
