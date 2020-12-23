@@ -53,5 +53,5 @@ if __name__ == '__main__':
     my_list = append_value(3, my_list)
     print(my_list)
 
-    my_dict = {"Jan": 26, "Peter": 32}
+    my_dict = {'Jan': 26, 'Peter': 32}
     iterate_over_dict(my_dict)
