@@ -5,6 +5,8 @@ slides/
 .benchmarks/
 *.isorted
 
+**/**/site/
+
 Chapter1_Intro/
 
 *.png

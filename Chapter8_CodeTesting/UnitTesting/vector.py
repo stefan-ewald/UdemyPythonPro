@@ -72,13 +72,13 @@ class Vector2D:
         return sqrt(self.x**2.0 + self.y**2.0)
 
     def check_vector_types(self, vector: object) -> None:
-        '''Check if the vector is an instance of the VectorND class.
+        '''Check if the vector is an instance of the Vector2D class.
 
         Args:
             vector (object): A vector instance.
 
         Raises:
-            TypeError: If vector is not an instance of the VectorND class.
+            TypeError: If vector is not an instance of the Vector2D class.
         '''
         if not isinstance(self, Vector2D) or not isinstance(vector, Vector2D):
             raise TypeError('You have to pass in two instances of the vector class!')

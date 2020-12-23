@@ -72,13 +72,13 @@ class Vector2D:
         return sqrt(self.x**2.0 + self.y**2.0)
 
     def check_vector_types(self, vector: object) -> None:
-        '''Check if the vector is an instance of the VectorND class.
+        '''Check if the vector is an instance of the Vector2D class.
 
         Args:
             vector (object): A vector instance.
 
         Raises:
-            TypeError: If vector is not an instance of the VectorND class.
+            TypeError: If vector is not an instance of the Vector2D class.
         '''
         if not isinstance(self, Vector2D) or not isinstance(vector, Vector2D):
             raise TypeError('You have to pass in two instances of the vector class!')
@@ -146,15 +146,15 @@ class Vector2D:
         '''Return the multiplication of the self vector and the other vector(or number) instance.
 
         Args:
-            other (Union[SupportsFloat, Vector2D]): Other vector instance or scaler value
-            (right-hand-side of the operator)
+            other (Union[SupportsFloat, Vector2D]): Other vector instance or scaler
+                value (right-hand-side of the operator)
 
         Raises:
             TypeError: Not int/float passed in.
 
         Returns:
             Union[SupportsFloat, Vector2D]: The multiplication of the self vector and the other
-            vector(or number) instance.
+                vector(or number) instance.
         '''
         if isinstance(other, Vector2D):
             return self.x * other.x + self.y * other.y
