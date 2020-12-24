@@ -29,7 +29,7 @@ PYTHON_MAX_VERSION = '3.8'
 PYTHON_REQUIRES = f'>={PYTHON_MIN_VERSION}, <={PYTHON_MAX_VERSION}'
 
 INSTALL_REQUIRES = [
-    'numpy',
+    'numpy>=1.18',
     'scipy',
     'Cython'
 ]
