@@ -4,6 +4,9 @@
 slides/
 .benchmarks/
 *.isorted
+*.zip
+reports/
+**/**/reports/
 
 **/**/site/
 

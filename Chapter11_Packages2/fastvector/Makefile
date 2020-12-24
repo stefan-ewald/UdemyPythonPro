@@ -23,4 +23,4 @@ test-coverage-html:
 	$(PYTHON) -m pytest --cov=$(SRC_CORE) $(SRC_TEST) --cov-report=html
 
 benchmark:
-	$(PYTHON) benchmarks/test_clipping.py
+	$(PYTHON) -m py.test --benchmark-columns=min,max,mean,stddev --benchmark-sort=mean $(SRC_BENCH)
