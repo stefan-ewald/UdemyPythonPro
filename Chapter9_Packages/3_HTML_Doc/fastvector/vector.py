@@ -1,5 +1,4 @@
-'''Own implementation of a 2D vector class.
-'''
+'''Own implementation of a 2D vector class.'''
 from __future__ import annotations
 
 import numbers
@@ -11,8 +10,7 @@ from typing import Union
 
 @total_ordering
 class Vector2D:
-    '''Vector2D class to perform simple vector operations.
-    '''
+    '''Vector2D class to perform simple vector operations.'''
 
     def __init__(self, x: SupportsFloat = 0, y: SupportsFloat = 0) -> None:
         '''Create a vector instance with the given x and y values.
