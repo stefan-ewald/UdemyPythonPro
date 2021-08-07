@@ -10,8 +10,6 @@ reports/
 
 **/**/site/
 
-Chapter1_Intro/
-
 *.png
 *.log
 *.pptx
