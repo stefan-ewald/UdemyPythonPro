@@ -1,14 +1,17 @@
-from my_lib import POWER_OF
+from my_lib import CONSTANT_VAR
 from my_lib import my_function
+
+
+my_float = 0.0
 
 
 def main():
     my_int_value = 3
-    # my_bool = True
-    # my_float = 2.5
+    my_bool = True
     my_function(my_int_value)
+    print(CONSTANT_VAR)
 
-    print(f"Dir:\n{dir()}")
+    print(f"Dir:\n{dir(my_int_value)}")
     print(f"Globals:\n{globals()}")
     print(f"Locals:\n{locals()}")
 
