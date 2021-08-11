@@ -1,19 +1,15 @@
-from my_lib import CONSTANT_VAR
-from my_lib import my_function
+from my_lib import GLOBAL_MYLIB_VAR
 
 
-my_float = 0.0
+my_global_int = 0.0
 
 
 def main():
-    my_int_value = 3
-    my_bool = True
-    my_function(my_int_value)
-    print(CONSTANT_VAR)
+    my_local_int = 3
+    print(GLOBAL_MYLIB_VAR)
 
-    print(f"Dir:\n{dir(my_int_value)}")
-    print(f"Globals:\n{globals()}")
     print(f"Locals:\n{locals()}")
+    print(f"Globals:\n{globals()}")
 
 
 if __name__ == '__main__':
