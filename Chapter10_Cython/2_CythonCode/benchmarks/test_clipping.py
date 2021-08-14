@@ -42,13 +42,13 @@ np_timer = Timer(
 
 
 def main():
-    python_mean_time = np.mean(python_timer.repeat(repeat=num_runs, number=1))
+    python_mean_time = np.mean(python_timer.repeat(repeat=num_runs, number=1)) * 1000.0
     print(f'fastvector.python_clip_vector: {python_mean_time}')
-    naive_cython_mean_time = np.mean(naive_cython_timer.repeat(repeat=num_runs, number=1))
+    naive_cython_mean_time = np.mean(naive_cython_timer.repeat(repeat=num_runs, number=1)) * 1000.0
     print(f'fastvector.naive_cython_clip_vector: {naive_cython_mean_time}')
-    cython_mean_time = np.mean(cython_timer.repeat(repeat=num_runs, number=1))
+    cython_mean_time = np.mean(cython_timer.repeat(repeat=num_runs, number=1)) * 1000.0
     print(f'fastvector.cython_clip_vector: {cython_mean_time}')
-    np_mean_time = np.mean(np_timer.repeat(repeat=num_runs, number=1))
+    np_mean_time = np.mean(np_timer.repeat(repeat=num_runs, number=1)) * 1000.0
     print(f'np.clip: {np_mean_time}')
     print(f'execution time speedup to python: {round(python_mean_time / cython_mean_time, 1)}x')
     print(f'execution time speedup to naive: {round(naive_cython_mean_time / cython_mean_time, 1)}x')

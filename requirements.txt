@@ -1,3 +1,7 @@
+pip
+Cython
+setuptools
+
 # Libraries
 ipython
 ipykernel
