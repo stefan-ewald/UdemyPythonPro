@@ -21,6 +21,7 @@ pylint
 mypy
 autopep8
 isort
+black
 
 # Documentation
 mkdocs
