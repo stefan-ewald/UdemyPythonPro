@@ -25,6 +25,15 @@ make compile && make run
 ## Running C in Python
 
 ```bash
-cd python_in_c
-make compile && make run
+cd c_in_python
+python setup.py install
+python main.py
+```
+
+## Using NUmba in Python
+
+```bash
+cd numba_jit
+python setup.py install
+python main.py
 ```

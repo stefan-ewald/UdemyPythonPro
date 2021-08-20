@@ -24,7 +24,7 @@ static PyObject *method_add(PyObject *self, PyObject *args)
     PyObject *result = PyList_New(len_a);
 
     for (int i = 0; i < len_a; i++)
-    {#
+    {
         PyObject *item_a = PyList_GetItem(list_a, i);
         PyObject *item_b = PyList_GetItem(list_b, i);
 
