@@ -30,7 +30,7 @@ python setup.py install
 python main.py
 ```
 
-## Using NUmba in Python
+## Using Numba in Python
 
 ```bash
 cd numba_jit

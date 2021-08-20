@@ -1,8 +1,6 @@
 '''Test code.
 '''
-import random
 from typing import Any
-from typing import List
 
 import numpy as np
 
@@ -13,11 +11,9 @@ import math_numba
 
 l = [i for i in range(1_000_000)]
 a = np.array([i for i in range(1_000_000)], dtype=np.int64)
-b = np.array([-i for i in range(1_000_000)], dtype=np.int64)
-v = fastvector.VectorND([random.random() for _ in range(100_000)])
-a = np.array([random.random() for _ in range(100_000)])
+v = fastvector.VectorND([i for i in range(1_000_000)])
 
-NUM_ROUNDS = 100
+NUM_ROUNDS = 200
 NUM_ITERATIONS = 10
 
 
@@ -30,13 +26,13 @@ NUM_ITERATIONS = 10
 #     )
 
 
-def test_naive_cython_clip_vector(benchmark: Any) -> None:
-    benchmark.pedantic(
-        fastvector.naive_cython_clip_vector,
-        args=(v, -1, 1, v),
-        rounds=NUM_ROUNDS,
-        iterations=NUM_ITERATIONS
-    )
+# def test_naive_cython_clip_vector(benchmark: Any) -> None:
+#     benchmark.pedantic(
+#         fastvector.naive_cython_clip_vector,
+#         args=(v, -1, 1, v),
+#         rounds=NUM_ROUNDS,
+#         iterations=NUM_ITERATIONS
+#     )
 
 
 def test_cython_clip_vector(benchmark: Any) -> None:
