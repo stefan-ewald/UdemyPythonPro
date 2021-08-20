@@ -1,11 +1,12 @@
 pip
-Cython
 setuptools
 
 # Libraries
 ipython
 ipykernel
 loguru
+numba
+Cython
 
 # Testing
 pytest

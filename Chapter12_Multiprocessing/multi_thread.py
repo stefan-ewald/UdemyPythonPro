@@ -7,7 +7,7 @@ NUM_THREADS = 4
 
 
 def calc(num_elements):
-    res = 0
+    res = 0.0
     for i in range(num_elements):
         res += math.sqrt(i)
     print(res)

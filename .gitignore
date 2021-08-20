@@ -13,7 +13,7 @@ reports/
 *.png
 *.log
 *.pptx
-TODO.txt
+TODO.*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -41,6 +41,7 @@ wheels/
 .installed.cfg
 *.egg
 MANIFEST
+*.pyd
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
