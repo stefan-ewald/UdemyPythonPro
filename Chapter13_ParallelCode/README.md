@@ -1,4 +1,4 @@
-# Threading vs. Multiprocessing
+# Parallel Code Execution in Python
 
 Threading (Concurrently):
 
@@ -13,3 +13,10 @@ Multiprocessing (Parallel):
 - Starting a process is slower than starting a thread
 - Memory is not shared between processes
 - Mutexes not necessary (unless threading in the new process)
+
+![img](./comparison.png)
+
+Async:
+
+- Refers to the occurence of events independent of the main program flow
+- Waiting for an event from the outside of our program
