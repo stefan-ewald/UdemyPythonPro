@@ -2,14 +2,14 @@ import math
 import time
 
 
-def calc(num_elements):
-    res = 0
+def calc(num_elements: int) -> None:
+    res = 0.0
     for i in range(num_elements):
         res += math.sqrt(i)
     print(res)
 
 
-def main():
+def main() -> None:
     start_time = time.perf_counter()
 
     for _ in range(4):

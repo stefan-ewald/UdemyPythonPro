@@ -25,6 +25,9 @@ async def main_await() -> int:
 
 async def main_task() -> int:
     task = asyncio.create_task(foo())
+    i = 2
+    j = i * 2
+    print(j)
     await task
     return 0
 
