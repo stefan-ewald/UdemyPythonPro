@@ -7,14 +7,14 @@ from multiprocessing import Pool
 NUM_PROCESSES = 4
 
 
-def calc(num_elements):
-    res = 0
+def calc(num_elements: int) -> None:
+    res = 0.0
     for i in range(num_elements):
         res += math.sqrt(i)
     print(res)
 
 
-def main():
+def main() -> None:
     start_time = time.perf_counter()
 
     with Pool(processes=NUM_PROCESSES) as pool:

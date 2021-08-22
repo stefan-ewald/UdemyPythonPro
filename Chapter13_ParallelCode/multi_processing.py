@@ -6,18 +6,18 @@ from multiprocessing import Process
 NUM_PROCESSES = 4
 
 
-def calc(num_elements):
-    res = 0
+def calc(num_elements: int) -> None:
+    res = 0.0
     for i in range(num_elements):
         res += math.sqrt(i)
     print(res)
 
 
-def main():
+def main() -> None:
     processes = []
 
     for _ in range(NUM_PROCESSES):
-        processes.append(Process(target=calc, args=[8_000_000]))
+        processes.append(Process(target=calc, args=(8_000_000,)))
 
     start_time = time.perf_counter()
 
