@@ -8,6 +8,7 @@ from typing import Union
 UserId_NT = NewType('UserId_NT', str)
 UserId_TV = TypeVar('UserId_TV', str, bytes)
 UserId = Union[str, bytes]
+UserId2 = str
 
 
 def print_text1(text: UserId_NT) -> None:
