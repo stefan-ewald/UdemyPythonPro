@@ -13,12 +13,10 @@ def log(fn):
         time = time.strftime('%H:%M:%S')
         try:
             fn_result = fn(*args, **kwargs)
-            print('Function {} was called at {} with params {} and returned {}'.format(
-                fn.__name__, time, arguments, fn_result))
+            print(f'Function {fn.__name__} was called at {time} with params {arguments} and returned {fn_result}')
             return fn_result
         except Exception as e:
-            print('Function {} was called at {} with params {} and raised an exception {}'.format(
-                fn.__name__, time, arguments, e))
+            print(f'Function {fn.__name__} was called at {time} with params {arguments} and raised an exception {e}')
     return logger
 
 

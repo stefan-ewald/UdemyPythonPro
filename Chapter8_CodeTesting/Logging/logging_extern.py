@@ -18,7 +18,7 @@ logger.add(filepath, rotation='1 Week')
 
 @logger.catch
 def divide_integers(a: int, b: int) -> float:
-    logger.debug('a={}, b={}'.format(a, b))
+    logger.debug(f'a={a}, b={b}')
     result = a / b
     return result
 

@@ -23,11 +23,11 @@ logger.addHandler(file_handler)
 
 def divide_integers(a: int, b: int) -> float:
     try:
-        logger.debug('a={}, b={}'.format(a, b))
+        logger.debug(f'a={a}, b={b}')
         result = a / b
         return result
     except Exception as e:
-        logger.exception('Exception was raised: {}'.format(e))
+        logger.exception(f'Exception was raised: {e}')
 
 
 def main():

@@ -19,10 +19,10 @@ class Vector2D:
         return self.__repr__()
 
     def __repr__(self):
-        return 'vector.Vector2D({}, {})'.format(self.x, self.y)
+        return f'vector.Vector2D({self.x}, {self.y})'
 
     def __str__(self):
-        return '({}, {})'.format(self.x, self.y)
+        return f'({self.x}, {self.y})'
 
     def __bool__(self):
         return bool(abs(self))
@@ -60,10 +60,10 @@ class Vector2D:
             y = self.y - other_vector.y
             return Vector2D(x, y)
         except AttributeError as e:
-            print('AttributeError: {} was raised!'.format(e))
+            print(f'AttributeError: {e} was raised!')
             return self
         except Exception as e:
-            print('Exception {}: {} was raised!'.format(type(e), e))
+            print(f'Exception {type(e)}: {e} was raised!')
 
     def __mul__(self, other):
         if isinstance(other, Vector2D):

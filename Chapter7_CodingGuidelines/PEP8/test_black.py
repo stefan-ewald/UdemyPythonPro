@@ -13,10 +13,10 @@ class Vector2D:
         return self.__repr__()
 
     def __repr__(self):
-        return 'vector.Vector2D({}, {})'.format(self.x, self.y)
+        return f'vector.Vector2D({self.x}, {self.y})'
 
     def __str__(self):
-        return '({}, {})'.format(self.x, self.y)
+        return f'({self.x}, {self.y})'
 
     def __bool__(self):
         return bool(abs(self))

@@ -21,7 +21,7 @@ def main() -> None:
         pool.map(calc, itertools.repeat(8_000_000, NUM_PROCESSES))
 
     end_time = time.perf_counter()
-    print('Took: {} s'.format(end_time - start_time))
+    print(f'Took: {end_time - start_time} s')
 
 
 if __name__ == '__main__':

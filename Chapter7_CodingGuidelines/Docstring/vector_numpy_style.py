@@ -48,7 +48,7 @@ class Vector2D:
         str
             The representation of the vector instance.
         '''
-        return 'vector.Vector2D({}, {})'.format(self.x, self.y)
+        return f'vector.Vector2D({self.x}, {self.y})'
 
     def __str__(self):
         '''Returns the vector instance as a string.
@@ -58,7 +58,7 @@ class Vector2D:
         str
             The vector instance as a string.
         '''
-        return '({}, {})'.format(self.x, self.y)
+        return f'({self.x}, {self.y})'
 
     def __bool__(self):
         '''Returns the truth value of the vector instance.

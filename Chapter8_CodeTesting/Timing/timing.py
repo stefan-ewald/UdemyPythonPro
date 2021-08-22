@@ -15,7 +15,7 @@ def timing(fn):
         fn_result = fn(*args, **kwargs)
         end_time = time.perf_counter()
         time_duration = end_time - start_time
-        print('Function {} took: {} s'.format(fn.__name__, time_duration))
+        print(f'Function {fn.__name__} took: {time_duration} s')
         return fn_result
     return timer
 
@@ -41,7 +41,7 @@ import random
 from vector import Vector2D
 '''
     timer = Timer(code_str, setup=import_str)
-    print('Mean computation time: {}'.format(sum(timer.repeat(repeat=3, number=100_000)) / 3))
+    print(f'Mean computation time: {sum(timer.repeat(repeat=3, number=100_000)) / 3}')
 
 
 def main():
