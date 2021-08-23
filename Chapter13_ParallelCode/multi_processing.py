@@ -30,6 +30,9 @@ def main() -> None:
     end_time = time.perf_counter()
     print(f'Took: {end_time - start_time} s')
 
+    for process in processes:
+        process.close()
+
 
 if __name__ == '__main__':
     main()
