@@ -1167,11 +1167,11 @@ static PyObject *__pyx_tuple__2;
 /* Late includes */
 
 /* "caller.pyx":9
- * 
- * 
+ *
+ *
  * cdef public double call_getterDouble():             # <<<<<<<<<<<<<<
  *     return getterDouble()
- * 
+ *
  */
 
 double call_getterDouble(void) {
@@ -1187,11 +1187,11 @@ double call_getterDouble(void) {
   __Pyx_RefNannySetupContext("call_getterDouble", 0);
 
   /* "caller.pyx":10
- * 
+ *
  * cdef public double call_getterDouble():
  *     return getterDouble()             # <<<<<<<<<<<<<<
- * 
- * 
+ *
+ *
  */
   __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_getterDouble); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -1216,11 +1216,11 @@ double call_getterDouble(void) {
   goto __pyx_L0;
 
   /* "caller.pyx":9
- * 
- * 
+ *
+ *
  * cdef public double call_getterDouble():             # <<<<<<<<<<<<<<
  *     return getterDouble()
- * 
+ *
  */
 
   /* function exit code */
@@ -1236,8 +1236,8 @@ double call_getterDouble(void) {
 }
 
 /* "caller.pyx":13
- * 
- * 
+ *
+ *
  * cdef public void call_getterList(double[] array):             # <<<<<<<<<<<<<<
  *     l = getterList()
  *     array[0] = l[0]
@@ -1256,7 +1256,7 @@ void call_getterList(double *__pyx_v_array) {
   __Pyx_RefNannySetupContext("call_getterList", 0);
 
   /* "caller.pyx":14
- * 
+ *
  * cdef public void call_getterList(double[] array):
  *     l = getterList()             # <<<<<<<<<<<<<<
  *     array[0] = l[0]
@@ -1319,8 +1319,8 @@ void call_getterList(double *__pyx_v_array) {
   (__pyx_v_array[2]) = __pyx_t_4;
 
   /* "caller.pyx":13
- * 
- * 
+ *
+ *
  * cdef public void call_getterList(double[] array):             # <<<<<<<<<<<<<<
  *     l = getterList()
  *     array[0] = l[0]
@@ -1410,7 +1410,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * # cython: language_level=3
  * import sys
  * sys.path.insert(0, '')             # <<<<<<<<<<<<<<
- * 
+ *
  * from test import getterDouble
  */
   __pyx_tuple__2 = PyTuple_Pack(2, __pyx_int_0, __pyx_kp_u_); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 3, __pyx_L1_error)
@@ -1700,7 +1700,7 @@ if (!__Pyx_RefNanny) {
  * # cython: language_level=3
  * import sys             # <<<<<<<<<<<<<<
  * sys.path.insert(0, '')
- * 
+ *
  */
   __pyx_t_1 = __Pyx_Import(__pyx_n_s_sys, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 2, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -1711,7 +1711,7 @@ if (!__Pyx_RefNanny) {
  * # cython: language_level=3
  * import sys
  * sys.path.insert(0, '')             # <<<<<<<<<<<<<<
- * 
+ *
  * from test import getterDouble
  */
   __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_sys); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 3, __pyx_L1_error)
@@ -1729,10 +1729,10 @@ if (!__Pyx_RefNanny) {
 
   /* "caller.pyx":5
  * sys.path.insert(0, '')
- * 
+ *
  * from test import getterDouble             # <<<<<<<<<<<<<<
  * from test import getterList
- * 
+ *
  */
   __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -1749,11 +1749,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "caller.pyx":6
- * 
+ *
  * from test import getterDouble
  * from test import getterList             # <<<<<<<<<<<<<<
- * 
- * 
+ *
+ *
  */
   __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
