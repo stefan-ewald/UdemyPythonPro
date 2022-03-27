@@ -4,7 +4,7 @@ from vector_type_annotations import Vector2D
 
 
 def print_value(val: str):
-	print(val)
+    print(val)
 
 
 def main():

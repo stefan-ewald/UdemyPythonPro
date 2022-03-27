@@ -25,7 +25,7 @@ def print_sequence_values(sequence: AllowedContainers) -> None:
 
 
 def print_user_id1(users: Dict, user_id: UserId_NT) -> Name:
-    return users[user_id] # users.get(user_id)
+    return users[user_id]  # users.get(user_id)
 
 
 def print_user_id2(users: Dict, user_id: UserId_TV) -> Name:

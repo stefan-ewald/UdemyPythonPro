@@ -1,4 +1,5 @@
-from distutils.core import setup, Extension
+from distutils.core import Extension
+from distutils.core import setup
 
 
 def main() -> None:

@@ -1,7 +1,9 @@
 from typing import List
 
-from numba.pycc import CC
 import numpy as np
+
+from numba.pycc import CC
+
 
 cc = CC('math_numba')
 # cc.verbose = True
