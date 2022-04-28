@@ -8,7 +8,7 @@ def check_for_boolean_value(val):
         return False
 
 
-def main():
+def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument('--age', help='Enter your age (int)', type=int, required=True)
     parser.add_argument('--name', help='Enter your name (str)', type=str, required=True)
