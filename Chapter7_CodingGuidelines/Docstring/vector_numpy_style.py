@@ -1,4 +1,6 @@
 '''Own implementation of a 2D vector class.'''
+from __future__ import annotations
+
 import numbers
 from functools import total_ordering
 from math import sqrt

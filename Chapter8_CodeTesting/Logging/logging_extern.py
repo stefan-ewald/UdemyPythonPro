@@ -1,8 +1,6 @@
-# pip install loguru
-# Github: https://github.com/Delgan/loguru
 from pathlib import Path
 
-from loguru import logger
+from loguru import logger  # https://github.com/Delgan/loguru
 
 
 # DEBUG: Detailed debug information

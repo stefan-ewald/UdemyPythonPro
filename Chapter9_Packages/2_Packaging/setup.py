@@ -4,7 +4,7 @@ from setuptools import setup
 
 CLASSIFIERS = '''\
 License :: OSI Approved
-Programming Language :: Python :: 3.7 :: 3.8
+Programming Language :: Python :: 3
 Topic :: Software Development
 Operating System :: Microsoft :: Windows
 Operating System :: POSIX
