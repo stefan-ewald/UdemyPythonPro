@@ -13,8 +13,10 @@ from pathlib import Path
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 # Formatter, FileHandler
-formatter = logging.Formatter('%(asctime)s:%(levelname)s:%(funcName)s:%(message)s')
-filepath = Path(__file__).parent.joinpath('log_standard.log')
+formatter = logging.Formatter(
+    "%(asctime)s:%(levelname)s:%(funcName)s:%(message)s"
+)
+filepath = Path(__file__).parent.joinpath("log_standard.log")
 file_handler = logging.FileHandler(filepath)
 file_handler.setLevel(logging.INFO)
 file_handler.setFormatter(formatter)
@@ -23,11 +25,11 @@ logger.addHandler(file_handler)
 
 def divide_integers(a: int, b: int) -> float:
     try:
-        logger.debug(f'a={a}, b={b}')
+        logger.debug(f"a={a}, b={b}")
         result = a / b
         return result
     except Exception as e:
-        logger.exception(f'Exception was raised: {e}')
+        logger.exception(f"Exception was raised: {e}")
 
 
 def main():
@@ -35,5 +37,5 @@ def main():
         print(divide_integers(10, 0))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

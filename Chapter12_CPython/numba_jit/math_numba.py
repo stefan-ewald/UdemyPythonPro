@@ -5,11 +5,11 @@ import numpy as np
 from numba.pycc import CC
 
 
-cc = CC('math_numba')
+cc = CC("math_numba")
 # cc.verbose = True
 
 
-@cc.export('add', '(i8[:], i8[:])')
+@cc.export("add", "(i8[:], i8[:])")
 def add(a: List[int], b: List[int]) -> np.ndarray:
     len_ = min(len(a), len(b))
     result = np.zeros(shape=(len_,), dtype=np.int64)
@@ -18,7 +18,7 @@ def add(a: List[int], b: List[int]) -> np.ndarray:
     return result
 
 
-@cc.export('clip', 'i8[:](i8[:], i8, i8)')
+@cc.export("clip", "i8[:](i8[:], i8, i8)")
 def clip(a: List[int], min_value: int, max_value: int) -> List[int]:
     len_ = len(a)
     for i in range(len_):

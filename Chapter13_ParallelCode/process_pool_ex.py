@@ -38,11 +38,11 @@ def main():
 
     with ProcessPoolExecutor() as ex:
         for number, prime in zip(NUMBERS, ex.map(is_prime, NUMBERS)):
-            print(f'{number} is prime: {prime}')
+            print(f"{number} is prime: {prime}")
 
     end = time.perf_counter_ns()
     print(f"time: {(end - start) / 1000000.0} ms")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

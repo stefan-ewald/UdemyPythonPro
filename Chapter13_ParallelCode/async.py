@@ -3,23 +3,23 @@ import sys
 
 
 async def foo():
-    print('start foo')
+    print("start foo")
     await asyncio.sleep(2.0)
-    print('end foo')
+    print("end foo")
     return 0
 
 
 async def bar():
-    print('start bar')
+    print("start bar")
     await asyncio.sleep(4.0)
-    print('end bar')
+    print("end bar")
     return 0
 
 
 async def main_await() -> int:
-    print('before await foo')
+    print("before await foo")
     await foo()
-    print('after await foo')
+    print("after await foo")
     return 0
 
 

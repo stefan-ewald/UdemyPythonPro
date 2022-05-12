@@ -41,8 +41,8 @@ def main() -> None:
     print(result)
 
     end = time.perf_counter_ns()
-    print(f'Took: {(end - start) / 1000000.0} ms')
+    print(f"Took: {(end - start) / 1000000.0} ms")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

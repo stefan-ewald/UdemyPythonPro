@@ -1,5 +1,5 @@
-'''Test code.
-'''
+"""Test code.
+"""
 import cProfile
 import io
 import pstats
@@ -17,10 +17,11 @@ def profile(fn):
         fn_result = fn(*args, **kwargs)
         profiler.disable()
         stream = io.StringIO()
-        ps = pstats.Stats(profiler, stream=stream).sort_stats('time')
+        ps = pstats.Stats(profiler, stream=stream).sort_stats("time")
         ps.print_stats()
         print(stream.getvalue())
         return fn_result
+
     return profiler
 
 
@@ -36,5 +37,5 @@ def main():
     test_addition_own_implementation()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

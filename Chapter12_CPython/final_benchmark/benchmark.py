@@ -1,5 +1,5 @@
-'''Test code.
-'''
+"""Test code.
+"""
 from typing import Any
 
 import numpy as np
@@ -40,7 +40,7 @@ def test_cython_clip_vector(benchmark: Any) -> None:
         fastvector.cython_clip_vector,
         args=(v, -1, 1, v),
         rounds=NUM_ROUNDS,
-        iterations=NUM_ITERATIONS
+        iterations=NUM_ITERATIONS,
     )
 
 
@@ -49,7 +49,7 @@ def test_np_clip(benchmark: Any) -> None:
         np.clip,
         args=(a, -1, 1, a),
         rounds=NUM_ROUNDS,
-        iterations=NUM_ITERATIONS
+        iterations=NUM_ITERATIONS,
     )
 
 
@@ -58,7 +58,7 @@ def test_numba_clip(benchmark: Any) -> None:
         math_numba.clip,
         args=(a, -1, 1),
         rounds=NUM_ROUNDS,
-        iterations=NUM_ITERATIONS
+        iterations=NUM_ITERATIONS,
     )
 
 
@@ -67,5 +67,5 @@ def test_cpython_clip(benchmark: Any) -> None:
         math_cpython.clip,
         args=(l, -1, 1),
         rounds=NUM_ROUNDS,
-        iterations=NUM_ITERATIONS
+        iterations=NUM_ITERATIONS,
     )
