@@ -79,7 +79,8 @@ class VectorND:
             SupportsFloat: Vector value at index *idx*.
         """
         if 0 <= idx < len(self.values):
-            return self.values[idx]
+            res: SupportsFloat = self.values[idx]
+            return res
         else:
             raise IndexError("Invalid index!")
 

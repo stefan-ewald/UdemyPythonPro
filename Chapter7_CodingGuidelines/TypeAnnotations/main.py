@@ -3,7 +3,7 @@
 from vector_type_annotations import Vector2D
 
 
-def print_value(val: str):
+def print_value(val: str) -> None:
     print(val)
 
 
