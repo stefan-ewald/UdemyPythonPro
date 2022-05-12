@@ -8,6 +8,7 @@ loguru
 Cython
 numba
 numpy
+snakeviz
 
 # Testing
 pytest

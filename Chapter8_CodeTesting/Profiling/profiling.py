@@ -2,11 +2,18 @@
 """
 import cProfile
 import io
+import os
 import pstats
 import random
 from functools import wraps
 
 from vector import Vector2D
+
+
+FILE_PATH = os.path.join(
+    os.path.abspath(os.path.join(__file__, os.path.pardir)),
+    "profiling_stats.prof",
+)
 
 
 def profile(fn):
@@ -17,9 +24,11 @@ def profile(fn):
         fn_result = fn(*args, **kwargs)
         profiler.disable()
         stream = io.StringIO()
-        ps = pstats.Stats(profiler, stream=stream).sort_stats("time")
-        ps.print_stats()
+        stats = pstats.Stats(profiler, stream=stream)
+        stats.sort_stats(pstats.SortKey.TIME)
+        stats.print_stats()
         print(stream.getvalue())
+        stats.dump_stats(filename=FILE_PATH)
         return fn_result
 
     return profiler
