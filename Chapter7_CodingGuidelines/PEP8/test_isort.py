@@ -13,5 +13,5 @@ import numpy as np
 from my_lib import A
 
 
-print('Hey')
-print('yo')
+print("Hey")
+print("yo")

@@ -11,11 +11,11 @@ from typing import Union
 
 AllowedContainers = Union[Dict, List]
 
-Name = NewType('Name', str)
-UserId_NT = NewType('UserId_NT', str)
-UserId_TV = TypeVar('UserId_TV', str, int)
+Name = NewType("Name", str)
+UserId_NT = NewType("UserId_NT", str)
+UserId_TV = TypeVar("UserId_TV", str, int)
 
-T = TypeVar('T', int, float, complex)
+T = TypeVar("T", int, float, complex)
 Vec = Iterable[Tuple[T, T]]
 
 
@@ -39,23 +39,22 @@ def inner_product(v: Vec[T]) -> T:
 def main():
     l1 = [1, 2, 3]
     print_sequence_values(l1)
-    d1 = {'a': 1, 'b': 2}
+    d1 = {"a": 1, "b": 2}
     print_sequence_values(d1)
     t1 = (1, 2, 3)
     print_sequence_values(t1)
 
-    users = {'1234': 'jan'}
-    u1 = '1234'
+    users = {"1234": "jan"}
+    u1 = "1234"
     print_user_id1(users, u1)
     # u2 = 1234
     # print_user_id1(users, u2)
     # u3 = []
     # print_user_id1(users, u3)
 
-    v1 = [[1, 1],
-          [2, 2]]
+    v1 = [[1, 1], [2, 2]]
     print(inner_product(v1))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

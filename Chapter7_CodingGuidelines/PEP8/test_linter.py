@@ -33,7 +33,9 @@ class Vector2D:
 
     def check_vector_types(self, vector2):
         if not isinstance(self, Vector2D) or not isinstance(vector2, Vector2D):
-            raise TypeError("You have to pass in two instances of the vector class!")
+            raise TypeError(
+                "You have to pass in two instances of the vector class!"
+            )
 
     def __eq__(self, other_vector):
         self.check_vector_types(other_vector)

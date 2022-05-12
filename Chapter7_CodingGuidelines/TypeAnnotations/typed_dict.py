@@ -2,19 +2,24 @@ from typing import TypedDict
 from typing import Union
 
 
-class Point2D(TypedDict, total=False):
+class Point2D(TypedDict):
     x: int
     y: int
     label: Union[str, int]
 
 
-a: Point2D = {'x': 1, 'y': 2, 'label': 'good'}  # OK
-print(a)
+def main() -> None:
+    a: Point2D = {"x": 1, "y": 2, "label": "good"}  # OK
+    print(a)
 
-b: Point2D = {'x': 1, 'y': 2, 'label': 2}  # OK
-print(b)
+    b: Point2D = {"x": 1, "y": 2, "label": 2}  # OK
+    print(b)
 
-c: Point2D = {'x': 0, 'label': 'bad'}           # Fails type check
-print(c)
+    c: Point2D = {"x": 0, "label": "bad"}  # Fails type check
+    print(c)
 
-print(c.keys(), c.values(), c.items())
+    print(c.keys(), c.values(), c.items())
+
+
+if __name__ == "__main__":
+    main()

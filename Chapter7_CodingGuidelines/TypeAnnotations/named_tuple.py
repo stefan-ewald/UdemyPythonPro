@@ -6,7 +6,7 @@ class User(NamedTuple):
     age: int = 27
 
 
-user1 = User('Jan')
+user1 = User("Jan")
 
 print(user1)
 print(dir(user1))
