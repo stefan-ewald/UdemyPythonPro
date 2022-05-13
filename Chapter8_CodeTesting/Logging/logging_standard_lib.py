@@ -1,13 +1,13 @@
 import logging
-import time
 from pathlib import Path
+from typing import Union
 
 
-# DEBUG: Detailed debug information
-# INFO: Things working as intended
-# WARNING: Something unexpected happened
-# ERROR: The software cannot perform some function
-# CRITICAL: Program crashes for example
+# Mode: DEBUG: Detailed debug information
+# Mode: INFO: Things working as intended
+# Mode: WARNING: Something unexpected happened
+# Mode: ERROR: The software cannot perform some function
+# Mode: CRITICAL: Program crashes for example
 
 # Setup the logger
 logger = logging.getLogger(__name__)
@@ -23,13 +23,14 @@ file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
 
 
-def divide_integers(a: int, b: int) -> float:
+def divide_integers(a: int, b: int) -> Union[None, float]:
     try:
         logger.debug(f"a={a}, b={b}")
         result = a / b
         return result
-    except Exception as e:
+    except ZeroDivisionError as e:
         logger.exception(f"Exception was raised: {e}")
+        return None
 
 
 def main():

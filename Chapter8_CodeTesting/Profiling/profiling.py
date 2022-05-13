@@ -2,18 +2,15 @@
 """
 import cProfile
 import io
-import os
 import pstats
 import random
 from functools import wraps
+from pathlib import Path
 
 from vector import Vector2D
 
 
-FILE_PATH = os.path.join(
-    os.path.abspath(os.path.join(__file__, os.path.pardir)),
-    "profiling_stats.prof",
-)
+FILE_PATH = Path(__file__).parent.joinpath("profiling_stats.prof")
 
 
 def profile(fn):

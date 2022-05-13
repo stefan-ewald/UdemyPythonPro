@@ -1,26 +1,29 @@
 import time
 from datetime import datetime
 from functools import wraps
+from typing import Any
+from typing import List
 
 
 def log(fn):
     @wraps(fn)
     def logger(*args, **kwargs):
-        args_values_types = [(a, type(a)) for a in args]
-        kwargs_values_types = [(k, v, type(v)) for k, v in kwargs.items()]
+        args_values_types: List[Any] = [(a, type(a)) for a in args]
+        kwargs_values_types: List[Any] = [(k, v, type(v)) for k, v in kwargs.items()]
         arguments = args_values_types + kwargs_values_types
         time_ = datetime.utcnow()
-        time_ = time_.strftime("%H:%M:%S")
+        time_str = time_.strftime("%H:%M:%S")
         try:
             fn_result = fn(*args, **kwargs)
             print(
-                f"Function {fn.__name__} was called at {time_} with params {arguments} and returned {fn_result}"
+                f"Function {fn.__name__} was called at {time_str} with params {arguments} and returned {fn_result}"
             )
             return fn_result
         except Exception as e:
             print(
-                f"Function {fn.__name__} was called at {time_} with params {arguments} and raised an exception {e}"
+                f"Function {fn.__name__} was called at {time_str} with params {arguments} and raised an exception {e}"
             )
+            return
 
     return logger
 
