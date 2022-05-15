@@ -7,6 +7,8 @@ import random
 from functools import wraps
 from pathlib import Path
 
+import numpy as np
+
 from vector import Vector2D
 
 
@@ -34,8 +36,8 @@ def profile(fn):
 @profile
 def test_addition_own_implementation():
     for _ in range(100_000):
-        v1 = Vector2D(random.randint(-10, 10), random.randint(-10, 10))
-        v2 = Vector2D(random.randint(-10, 10), random.randint(-10, 10))
+        v1 = Vector2D(np.random.randint(-10, 10), np.random.randint(-10, 10))
+        v2 = Vector2D(np.random.randint(-10, 10), np.random.randint(-10, 10))
         c3 = v1 + v2  # noqa
 
 

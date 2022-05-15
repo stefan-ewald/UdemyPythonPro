@@ -25,7 +25,7 @@ logger.addHandler(file_handler)
 
 def divide_integers(a: int, b: int) -> Union[None, float]:
     try:
-        logger.debug(f"a={a}, b={b}")
+        logger.info(f"a={a}, b={b}")
         result = a / b
         return result
     except ZeroDivisionError as e:

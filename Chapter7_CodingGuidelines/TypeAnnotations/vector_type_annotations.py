@@ -14,7 +14,7 @@ class Vector2D:
     """Vector2D class to perform simple vector operations."""
 
     def __init__(self, x: SupportsFloat = 0, y: SupportsFloat = 0) -> None:
-        """Create a vector instance with the given x and y values.
+        """Create a vector with the given x and y values.
 
         Args:
             x (SupportsFloat, optional): x-Value. Defaults to 0.
@@ -30,32 +30,32 @@ class Vector2D:
             raise TypeError("You must pass in int/float values for x and y!")
 
     def __call__(self) -> str:
-        """Callable for the vector instance representation.
+        """Callable for the vector representation.
 
         Returns:
-            str: The representation of the vector instance.
+            str: The representation of the vector.
         """
         print("Calling the __call__ function!")
         return self.__repr__()
 
     def __repr__(self) -> str:
-        """Return the vector instance representation.
+        """Return the vector representation.
 
         Returns:
-            str: The representation of the vector instance.
+            str: The representation of the vector.
         """
         return f"vector.Vector2D({self.x}, {self.y})"
 
     def __str__(self) -> str:
-        """The vector instance as a string.
+        """The vector as a string.
 
         Returns:
-            str: The vector instance as a string.
+            str: The vector as a string.
         """
         return f"({self.x}, {self.y})"
 
     def __bool__(self) -> bool:
-        """Return the truth value of the vector instance.
+        """Return the truth value of the vector.
 
         Returns:
             bool: True, if the vector is not the Null-vector. False, else.
@@ -63,10 +63,10 @@ class Vector2D:
         return bool(abs(self))
 
     def __abs__(self) -> float:
-        """Return the length (magnitude) of the vector instance.
+        """Return the length (magnitude) of the vector.
 
         Returns:
-            float: Length of the vector instance.
+            float: Length of the vector.
         """
         return sqrt(self.x**2.0 + self.y**2.0)
 
@@ -74,7 +74,7 @@ class Vector2D:
         """Check if the vector is an instance of the Vector2D class.
 
         Args:
-            vector (object): A vector instance.
+            vector (object): A vector.
 
         Raises:
             TypeError: If vector is not an instance of the Vector2D class.
@@ -85,13 +85,13 @@ class Vector2D:
             )
 
     def __eq__(self, other_vector: object) -> bool:
-        """Check if the vector instances have the same values.
+        """Check if the vectors have the same values.
 
         Args:
-            other_vector (object): Other vector instance (right-hand-side of the operator)
+            other_vector (object): Other vector (rhs)
 
         Returns:
-            bool: True, if the both vector instances have the same values. False, else.
+            bool: True, if the both vectors have the same values. False, else.
         """
         self.check_vector_types(other_vector)
         is_equal = False
@@ -101,13 +101,13 @@ class Vector2D:
         return is_equal
 
     def __lt__(self, other_vector: Vector2D) -> bool:
-        """Check if the self instance is less than the other vector instance.
+        """Check if the self is less than the other vector.
 
         Args:
-            other_vector (Vector2D): Other vector instance (right-hand-side of the operator).
+            other_vector (Vector2D): Other vector (rhs).
 
         Returns:
-            bool: True, if the self instance is less than the other vector instance. False, else.
+            bool: True, if the self is less than the other vector. False, else.
         """
         self.check_vector_types(other_vector)
         is_less_than = False
@@ -116,13 +116,13 @@ class Vector2D:
         return is_less_than
 
     def __add__(self, other_vector: Vector2D) -> Vector2D:
-        """Returns the additon vector of the self and the other vector instance.
+        """Returns the additon vector of the self and the other vector.
 
         Args:
-            other_vector (Vector2D): Other vector instance (right-hand-side of the operator).
+            other_vector (Vector2D): Other vector (rhs).
 
         Returns:
-            Vector2D: The additon vector of the self and the other vector instance.
+            Vector2D: The additon vector of the self and the other vector.
         """
         self.check_vector_types(other_vector)
         x = self.x + other_vector.x
@@ -130,13 +130,13 @@ class Vector2D:
         return Vector2D(x, y)
 
     def __sub__(self, other_vector: Vector2D) -> Vector2D:
-        """Return the subtraction vector of the self and the other vector instance.
+        """Return the subtraction vector of the self and the other vector.
 
         Args:
-            other_vector (Vector2D): Other vector instance (right-hand-side of the operator).
+            other_vector (Vector2D): Other vector (rhs).
 
         Returns:
-            Vector2D: The subtraction vector of the self and the other vector instance.
+            Vector2D: The subtraction vector of the self and the other vector.
         """
         self.check_vector_types(other_vector)
         x = self.x - other_vector.x
@@ -146,18 +146,17 @@ class Vector2D:
     def __mul__(
         self, other: Union[SupportsFloat, Vector2D]
     ) -> Union[SupportsFloat, Vector2D]:
-        """Return the multiplication of the self vector and the other vector(or number) instance.
+        """Return the multiplication of self and the other vector/number.
 
         Args:
-            other (Union[SupportsFloat, Vector2D]): Other vector instance or scaler
-                value (right-hand-side of the operator)
+            other (Union[SupportsFloat, Vector2D]): Other vector or scaler
+                value (rhs)
 
         Raises:
             TypeError: Not int/float passed in.
 
         Returns:
-            Union[SupportsFloat, Vector2D]: The multiplication of the self vector and the other
-                vector(or number) instance.
+            Union[SupportsFloat, Vector2D]: The multiplication of self and other.
         """
         if isinstance(other, Vector2D):
             res: SupportsFloat = self.x * other.x + self.y * other.y
@@ -166,21 +165,21 @@ class Vector2D:
             return Vector2D(self.x * other, self.y * other)
         else:
             raise TypeError(
-                "You must pass in a vector instance or an int/float number!"
+                "You must pass in a vector or an int/float number!"
             )
 
     def __truediv__(self, other: SupportsFloat) -> Vector2D:
-        """Return the multiplication of the self vector and the other vector(or number) instance.
+        """Return the multiplication of self and the other vector/number.
 
         Args:
-            other: Other vector instance or scaler value (right-hand-side of the operator).
+            other: Other vector or scaler value (rhs).
 
         Raises:
             ValueError: Division by zero.
             TypeError: Not int/float passed in.
 
         Returns:
-            SupportsFloat: The multiplication of the self vector and the other vector(or number) instance.
+            SupportsFloat: The multiplication of self and the other vector/number.
         """
         if isinstance(other, numbers.Real):
             if other != 0.0:

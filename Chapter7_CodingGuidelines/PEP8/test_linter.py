@@ -70,7 +70,7 @@ class Vector2D:
             return Vector2D(self.x * other, self.y * other)
         else:
             raise TypeError(
-                "You must pass in a vector instance or an int/float number!"
+                "You must pass in a vector or an int/float number!"
             )
 
     def __truediv__(self, other):
