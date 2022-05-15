@@ -16,12 +16,14 @@ def log(fn):
         try:
             fn_result = fn(*args, **kwargs)
             print(
-                f"Function {fn.__name__} was called at {time_str} with params {arguments} and returned {fn_result}"
+                f"Function {fn.__name__} was called at {time_str} "
+                f"with params {arguments} and returned {fn_result}"
             )
             return fn_result
         except Exception as e:
             print(
-                f"Function {fn.__name__} was called at {time_str} with params {arguments} and raised an exception {e}"
+                f"Function {fn.__name__} was called at {time_str} "
+                f"with params {arguments} and raised an exception {e}"
             )
             return
 
