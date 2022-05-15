@@ -40,9 +40,9 @@ import random
 from vector import Vector2D
 """
     timer = Timer(code_str, setup=import_str)
-    print(
-        f"Mean computation time: {sum(timer.repeat(repeat=3, number=100_000)) / 3}"
-    )
+    num_runs = 3
+    mean_time = sum(timer.repeat(repeat=num_runs, number=100_000)) / num_runs
+    print(f"Mean computation time: {mean_time}")
 
 
 def main():
