@@ -32,4 +32,10 @@ repos:
     rev: v0.942
     hooks:
     -   id: mypy
-        exclude: ^docs/
+        exclude: |
+            (?x)(
+                ^docs/|
+                ^Chapter8_CodeTesting/|
+                ^Chapter9_Packages/|
+                ^Chapter10_Cython/|
+            )
