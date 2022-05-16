@@ -1,4 +1,4 @@
 [tool.black]
-line-length = 80
+line-length = 120
 skip-string-normalization = false
-skip-magic-trailing-comma = false
+skip-magic-trailing-comma = true

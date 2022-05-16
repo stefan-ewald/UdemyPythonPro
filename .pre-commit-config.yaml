@@ -29,13 +29,7 @@ repos:
         exclude: ^docs/
 
 -   repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v0.931
+    rev: v0.942
     hooks:
     -   id: mypy
-        exclude: |
-            (?x)(
-                ^docs/|
-                ^Chapter8_CodeTesting/|
-                ^Chapter9_Packages/|
-                ^Chapter10_Cython/|
-            )
+        exclude: ^docs/
