@@ -1,7 +1,7 @@
 from typing import Any
 
 import pytest
-from vector import Vector2D
+from fastvector import Vector2D
 
 
 V1 = Vector2D(0, 0)
