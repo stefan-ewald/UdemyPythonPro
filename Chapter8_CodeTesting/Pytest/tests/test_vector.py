@@ -1,7 +1,7 @@
 from typing import Any
 
 import pytest
-from vector import Vector2D
+from fastvector import Vector2D
 
 
 V1 = Vector2D(0, 0)
@@ -33,9 +33,33 @@ def test_sub(lhs: Vector2D, rhs: Vector2D, exp_res: Vector2D) -> None:
     assert lhs - rhs == exp_res
 
 
+@pytest.mark.parametrize(
+    ('lhs', 'rhs', 'exp_res'),
+    (
+        (V1, V2, 0.0),
+        (V1, V3, 0.0),
+        (V3, V2, -5.0),
+    )
+)
+def test_mul_vec(lhs: Vector2D, rhs: Vector2D, exp_res: float) -> None:
+    assert lhs * rhs == exp_res
+
+
+@pytest.mark.parametrize(
+    ('lhs', 'rhs', 'exp_res'),
+    (
+        (V1, 2.0, Vector2D(0.0, 0.0)),
+        (V2, 2.0, Vector2D(-2.0, 2.0)),
+        (V3, 2.0, Vector2D(5.0, -5.0)),
+    )
+)
+def test_mul_float(lhs: Vector2D, rhs: float, exp_res: Vector2D) -> None:
+    assert lhs * rhs == exp_res
+
+
 @pytest.mark.skip(reason="Not implemented")
-def test_mul(lhs: Vector2D, rhs: Vector2D, exp_res: Vector2D) -> None:
-    assert lhs - rhs == exp_res
+def test_abs() -> None:
+    pass
 
 
 @pytest.mark.parametrize(
@@ -52,5 +76,10 @@ def test_raises(x: Any, y: Any) -> None:
 
 
 def test_repr(capture_stdout: dict) -> None:
-    print(Vector2D(1.0, 2.0))
+    print(repr(Vector2D(1.0, 2.0)))
+    assert capture_stdout["stdout"] == "vector.Vector2D(1.0, 2.0)\n"
+
+
+def test_str(capture_stdout: dict) -> None:
+    print(str(Vector2D(1.0, 2.0)))
     assert capture_stdout["stdout"] == "(1.0, 2.0)\n"

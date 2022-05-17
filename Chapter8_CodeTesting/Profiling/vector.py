@@ -27,14 +27,6 @@ class Vector2D:
         else:
             raise TypeError('You must pass in int/float value for x and y!')
 
-    def __call__(self) -> None:
-        """Callable for the vector representation.
-
-        Returns:
-            The representation of the vector.
-        """
-        print("Calling the __call__ method!")
-
     def __repr__(self) -> str:
         """Return the vector representation.
 
