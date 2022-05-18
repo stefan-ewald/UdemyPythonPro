@@ -1,4 +1,5 @@
-"""Own implementation of a 2D vector class."""
+"""Own implementation of a 2D vector class.
+"""
 from __future__ import annotations
 
 import numbers
