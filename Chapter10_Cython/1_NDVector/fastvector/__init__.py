@@ -1,4 +1,4 @@
-from .vector import Vector2D
+from .vector import VectorND
 
 
-__all__ = ["Vector2D"]
+__all__ = ["VectorND"]
