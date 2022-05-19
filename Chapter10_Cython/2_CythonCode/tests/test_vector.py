@@ -1,6 +1,9 @@
 from typing import Any
+from typing import SupportsFloat
 
 from fastvector import VectorND
+from fastvector import int32
+from fastvector import uint32
 
 import pytest
 
@@ -84,3 +87,50 @@ def test_repr(capture_stdout: dict) -> None:
 def test_str(capture_stdout: dict) -> None:
     print(str(VectorND(1.0, 2.0)))
     assert capture_stdout["stdout"] == "(array('d', [1.0, 2.0]))\n"
+
+
+@pytest.mark.parametrize(
+    ('v'),
+    (
+        VectorND(1, 1, 1),
+    )
+)
+def test_len(v: VectorND) -> None:
+    assert len(v) == 3
+    assert len(v) == len(v.values)
+
+
+@pytest.mark.parametrize(
+    ('v', 'idx', 'exp'),
+    (
+        (VectorND(1, 2, 3), 0, 1),
+        (VectorND(1, 2, 3), 1, 2),
+        (VectorND(1, 2, 3), 2, 3),
+    )
+)
+def test_get_item(v: VectorND, idx: int, exp: SupportsFloat) -> None:
+    assert v[idx] == exp
+
+
+@pytest.mark.parametrize(
+    ('v', 'idx', 'exp'),
+    (
+        (VectorND(1, 2, 3), 0, 1),
+        (VectorND(1, 2, 3), 1, 2),
+        (VectorND(1, 2, 3), 2, 3),
+    )
+)
+def test_set_item(v: VectorND, idx: int, exp: SupportsFloat) -> None:
+    v[idx] = exp
+    assert v[idx] == exp
+
+
+@pytest.mark.parametrize(
+    ('lhs', 'rhs', 'exp_res'),
+    (
+        (VectorND(1, 1, dtype=uint32), VectorND(2, 2, dtype=uint32), VectorND(3, 3, dtype=uint32)),
+        (VectorND(1, 1, dtype=int32), VectorND(-1, -2, dtype=int32), VectorND(0, -1, dtype=int32)),
+    )
+)
+def test_add_dtypes(lhs: VectorND, rhs: VectorND, exp_res: VectorND) -> None:
+    assert lhs + rhs == exp_res

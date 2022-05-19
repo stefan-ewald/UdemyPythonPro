@@ -1,8 +1,8 @@
-from typing import Union
+from typing import SupportsFloat
 
 
 Dtype = str
-Number = Union[int, float]
+Number = SupportsFloat
 
 uint8 = "B"
 int8 = "b"

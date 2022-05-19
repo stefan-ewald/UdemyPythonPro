@@ -5,13 +5,16 @@ import numbers
 from functools import total_ordering
 from math import sqrt
 from typing import Any
-from typing import SupportsFloat
 from typing import Union
+
+from .dtypes import Dtype
+from .dtypes import Number
+from .dtypes import float64
 
 
 @total_ordering
 class VectorND:
-    def __init__(self, *args: Any, dtype: str = "d") -> None:
+    def __init__(self, *args: Any, dtype: Dtype = float64) -> None:
         """Create a vector with the given values.
 
         Args:
@@ -110,8 +113,8 @@ class VectorND:
         return VectorND(result)
 
     def __mul__(
-        self, other: Union[VectorND, SupportsFloat]
-    ) -> Union[VectorND, SupportsFloat]:
+        self, other: Union[VectorND, Number]
+    ) -> Union[VectorND, Number]:
         """Return the multiplication of self and the other vector/number.
 
         Args:
@@ -129,7 +132,7 @@ class VectorND:
             raise TypeError('You must pass in an int/float!')
         return VectorND([v * other for v in self.values])
 
-    def __truediv__(self, other: SupportsFloat) -> VectorND:
+    def __truediv__(self, other: Number) -> VectorND:
         """Return the multiplication of self and the other vector/number.
 
         Args:
@@ -145,3 +148,32 @@ class VectorND:
         if not isinstance(other, numbers.Real):
             raise TypeError('You must pass in an int/float!')
         return VectorND([v / other for v in self.values])
+
+    def __len__(self) -> int:
+        """Returns the length of the vector.
+
+        Returns:
+            int: The length.
+        """
+        return len(self.values)
+
+    def __getitem__(self, idx: int) -> Number:
+        """Returns the i-th component of the vector.
+
+        Args:
+            idx (int): i-th component index
+
+        Returns:
+            Number: The value at the i-th component
+        """
+        result: Number = self.values[idx]
+        return result
+
+    def __setitem__(self, idx: int, val: Number) -> None:
+        """Updates the i-th component of the vector.
+
+        Args:
+            idx (int): i-th component index
+            val (Number): The updated valued
+        """
+        self.values[idx] = val

@@ -15,10 +15,12 @@ from .vector import VectorND
 
 
 __all__ = [
-    "cython_clip_vector",
-    "naive_cython_clip_vector",
     "python_clip_vector",
+    "naive_cython_clip_vector",
+    "cython_clip_vector",
+    "VectorND",
     "float32",
+    "float64",
     "float64",
     "uint8",
     "int8",
@@ -28,5 +30,4 @@ __all__ = [
     "int32",
     "uint64",
     "int64",
-    "VectorND",
 ]

@@ -1,6 +1,8 @@
 # Version 1: python setup.py install
 # Version 2: python setup.py develop
 # Version 3: pip install -e .
+from Cython.Build import cythonize
+from setuptools import Extension
 from setuptools import setup
 
 
@@ -31,6 +33,15 @@ INSTALL_REQUIRES = ["numpy", "scipy", "Cython"]
 
 PACKAGES = ["fastvector", "tests"]
 
+CYTHON_EXTENSIONS = [
+    Extension(
+        name="fastvector.cython_computations",
+        sources=["fastvector/cython_computations.pyx"]
+    )
+]
+
+EXT_MODULES = cythonize(CYTHON_EXTENSIONS)
+
 metadata = dict(
     name=DISTNAME,
     version=VERSION,
@@ -43,6 +54,7 @@ metadata = dict(
     description=DESCRIPTION,
     classifiers=[CLASSIFIERS],
     license=LICENSE,
+    ext_modules=EXT_MODULES,
 )
 
 

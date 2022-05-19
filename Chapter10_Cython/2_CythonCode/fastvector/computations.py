@@ -1,5 +1,3 @@
-"""Implementation of vector computations.
-"""
 # pylint: disable=import-error
 from .cython_computations import _cython_clip_vector
 from .cython_computations import _naive_cython_clip_vector
@@ -12,20 +10,7 @@ def python_clip_vector(
     min_value: Number,
     max_value: Number,
     vector_out: VectorND,
-):
-    """Clip the vector values.
-
-    Args:
-        vector_in (VectorND): Input vector.
-        min_value (Number): Min value.
-        max_value (Number): Max value.
-        vector_out (VectorND): Output vector.
-
-    Raises:
-        ValueError: If min_value is less than max_value.
-    """
-    if min_value >= max_value:
-        raise ValueError("min_value must be less than max_value")
+) -> None:
     for idx in range(len(vector_in)):
         vector_out[idx] = min(max(vector_in[idx], min_value), max_value)
 
@@ -35,20 +20,7 @@ def naive_cython_clip_vector(
     min_value: Number,
     max_value: Number,
     vector_out: VectorND,
-):
-    """Clip the vector values.
-
-    Args:
-        vector_in (VectorND): Input vector.
-        min_value (Number): Min value.
-        max_value (Number): Max value.
-        vector_out (VectorND): Output vector.
-
-    Raises:
-        ValueError: If min_value is less than max_value.
-    """
-    if min_value >= max_value:
-        raise ValueError("min_value must be less than max_value")
+) -> None:
     _naive_cython_clip_vector(
         vector_in.values, min_value, max_value, vector_out.values
     )
@@ -59,20 +31,7 @@ def cython_clip_vector(
     min_value: Number,
     max_value: Number,
     vector_out: VectorND,
-):
-    """Clip the vector values.
-
-    Args:
-        vector_in (VectorND): Input vector.
-        min_value (Number): Min value.
-        max_value (Number): Max value.
-        vector_out (VectorND): Output vector.
-
-    Raises:
-        ValueError: If min_value is less than max_value.
-    """
-    if min_value >= max_value:
-        raise ValueError("min_value must be less than max_value")
+) -> None:
     _cython_clip_vector(
         vector_in.values, min_value, max_value, vector_out.values
     )

@@ -34,21 +34,26 @@ np_timer = Timer("np.clip(a, -1, 1, a)", setup=import_string)
 
 def main():
     python_mean_time = (
-        np.mean(python_timer.repeat(repeat=num_repeats, number=num_runs)) * 1000.0
+        np.mean(python_timer.repeat(repeat=num_repeats, number=num_runs))
+        * 1000.0
     )
     print(f"fastvector.python_clip_vector: {python_mean_time}")
 
     naive_cython_mean_time = (
-        np.mean(naive_cython_timer.repeat(repeat=num_repeats, number=num_runs)) * 1000.0
+        np.mean(naive_cython_timer.repeat(repeat=num_repeats, number=num_runs))
+        * 1000.0
     )
     print(f"fastvector.naive_cython_clip_vector: {naive_cython_mean_time}")
 
     cython_mean_time = (
-        np.mean(cython_timer.repeat(repeat=num_repeats, number=num_runs)) * 1000.0
+        np.mean(cython_timer.repeat(repeat=num_repeats, number=num_runs))
+        * 1000.0
     )
     print(f"fastvector.cython_clip_vector: {cython_mean_time}")
 
-    np_mean_time = np.mean(np_timer.repeat(repeat=num_repeats, number=num_runs)) * 1000.0
+    np_mean_time = (
+        np.mean(np_timer.repeat(repeat=num_repeats, number=num_runs)) * 1000.0
+    )
     print(f"np.clip: {np_mean_time}")
 
     print(

@@ -38,4 +38,5 @@ repos:
                 ^Chapter8_CodeTesting/|
                 ^Chapter9_Packages/|
                 ^Chapter10_Cython/|
+                ^Chapter11_Packages2/|
             )

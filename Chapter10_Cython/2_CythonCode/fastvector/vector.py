@@ -1,5 +1,3 @@
-"""VectorND class implementation.
-"""
 from __future__ import annotations
 
 import array
@@ -7,7 +5,6 @@ import numbers
 from functools import total_ordering
 from math import sqrt
 from typing import Any
-from typing import SupportsFloat
 from typing import Union
 
 from .dtypes import Dtype
@@ -17,14 +14,12 @@ from .dtypes import float64
 
 @total_ordering
 class VectorND:
-    """VectorND class to perform simple vector operations."""
-
     def __init__(self, *args: Any, dtype: Dtype = float64) -> None:
-        """Create a vector with the given x and y values.
+        """Create a vector with the given values.
 
         Args:
             args (Any): The vector values.
-            dtype (Any): The dtype of the underlying arry. Defaults to 'float32'.
+            dtype (Dtype): The data type of the array.array.
 
         Raises:
             TypeError: If x or y are not a number.
@@ -32,10 +27,10 @@ class VectorND:
         if len(args) == 1 and isinstance(args[0], list):
             self.values = array.array(dtype, args[0])
         elif len(args) > 1:
-            values = [val for val in args]
-            self.values = array.array(dtype, values)
+            inputs = [val for val in args]
+            self.values = array.array(dtype, inputs)
         else:
-            raise TypeError("You must pass in a tuple or list of values!")
+            raise TypeError('You must pass in int/float value for x and y!')
 
     def __repr__(self) -> str:
         """Return the vector representation.
@@ -155,42 +150,30 @@ class VectorND:
         return VectorND([v / other for v in self.values])
 
     def __len__(self) -> int:
-        """Return the length of the vector.
+        """Returns the length of the vector.
 
         Returns:
-            int: The vector length.
+            int: The length.
         """
         return len(self.values)
 
     def __getitem__(self, idx: int) -> Number:
-        """Return the vector item at index *idx*.
+        """Returns the i-th component of the vector.
 
         Args:
-            idx (int): The vector index.
-
-        Raises:
-            IndexError: If an invalid index is passed in.
+            idx (int): i-th component index
 
         Returns:
-            Number: Vector value at index *idx*.
+            Number: The value at the i-th component
         """
-        if 0 <= idx < len(self.values):
-            result: Number = self.values[idx]
-            return result
-        else:
-            raise IndexError("Invalid index!")
+        result: Number = self.values[idx]
+        return result
 
     def __setitem__(self, idx: int, val: Number) -> None:
-        """Set the vector item at index *idx*.
+        """Updates the i-th component of the vector.
 
         Args:
-            idx (int): The vector index.
-            val (Number): The vector value to set.
-
-        Raises:
-            IndexError: If an invalid index is passed in.
+            idx (int): i-th component index
+            val (Number): The updated valued
         """
-        if 0 <= idx < len(self.values):
-            self.values[idx] = val
-        else:
-            raise IndexError("Invalid index!")
+        self.values[idx] = val
