@@ -1,12 +1,5 @@
-from typing import List
-from typing import Union
+Dtype = str
 
-
-# Type Annotations
-Number = float
-Values = List[Number]
-
-# Dtypes
 uint8 = "B"
 int8 = "b"
 uint16 = "H"

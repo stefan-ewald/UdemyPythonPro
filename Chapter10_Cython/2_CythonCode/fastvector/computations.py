@@ -24,8 +24,6 @@ def python_clip_vector(
     Raises:
         ValueError: If min_value is less than max_value.
     """
-    VectorND.check_vector_types(vector_in)
-    VectorND.check_vector_types(vector_out)
     if min_value >= max_value:
         raise ValueError("min_value must be less than max_value")
     for idx in range(len(vector_in)):
@@ -49,8 +47,6 @@ def naive_cython_clip_vector(
     Raises:
         ValueError: If min_value is less than max_value.
     """
-    VectorND.check_vector_types(vector_in)
-    VectorND.check_vector_types(vector_out)
     if min_value >= max_value:
         raise ValueError("min_value must be less than max_value")
     _naive_cython_clip_vector(
@@ -75,8 +71,6 @@ def cython_clip_vector(
     Raises:
         ValueError: If min_value is less than max_value.
     """
-    VectorND.check_vector_types(vector_in)
-    VectorND.check_vector_types(vector_out)
     if min_value >= max_value:
         raise ValueError("min_value must be less than max_value")
     _cython_clip_vector(
