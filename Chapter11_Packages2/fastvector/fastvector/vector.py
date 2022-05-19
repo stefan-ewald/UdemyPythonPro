@@ -29,7 +29,7 @@ class VectorND:
         """
         if len(args) == 1 and isinstance(args[0], list):
             self.values = array.array(dtype, args[0])
-        elif len(args) > 0:
+        elif len(args) > 1:
             values = [val for val in args]
             self.values = array.array(dtype, values)
         else:

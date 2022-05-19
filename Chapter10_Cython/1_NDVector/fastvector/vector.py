@@ -1,5 +1,3 @@
-"""Own implementation of a 2D vector class.
-"""
 from __future__ import annotations
 
 import array
@@ -25,7 +23,7 @@ class VectorND:
         """
         if len(args) == 1 and isinstance(args[0], list):
             self.values = array.array(dtype, args[0])
-        elif len(args) > 0:
+        elif len(args) > 1:
             inputs = [val for val in args]
             self.values = array.array(dtype, inputs)
         else:
