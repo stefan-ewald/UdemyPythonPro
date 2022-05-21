@@ -1,13 +1,16 @@
-from distutils.core import Extension
-from distutils.core import setup
+from setuptools import Extension
+from setuptools import setup
 
 
 def main() -> None:
+    name = "math_cpython"
+    version = "1.0.0"
+    module = Extension(name, ["mathmodule.c"])
+
     setup(
-        name="math_cpython",
-        version="1.0.0",
-        description="CPython module in Python",
-        ext_modules=[Extension("math_cpython", ["mathmodule.c"])],
+        name=name,
+        version=version,
+        ext_modules=[module],
     )
 
 
