@@ -6,7 +6,7 @@ from numba.pycc import CC
 
 
 cc = CC("math_numba")
-# cc.verbose = True
+cc.verbose = True
 
 
 @cc.export("add", "(i8[:], i8[:])")

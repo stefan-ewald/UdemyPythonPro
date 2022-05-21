@@ -15,7 +15,7 @@ ARRAY = np.array([i for i in range(100_000)], dtype=np.int64)
 VECTOR = fastvector.VectorND([i for i in range(100_000)], dtype=fastvector.int64)
 
 NUM_ROUNDS = 100
-NUM_ITERATIONS = 10
+NUM_ITERATIONS = 20
 
 
 def test_cython_clip(benchmark: Any) -> None:
