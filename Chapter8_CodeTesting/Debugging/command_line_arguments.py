@@ -18,9 +18,11 @@ def main():
     )
     args = parser.parse_args()
     print(args)
+
     a = args.val1
     b = args.val2
     c = args.val3
+
     print(a, type(a))
     print(b, type(b))
     print(c, type(c))

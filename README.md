@@ -24,10 +24,10 @@ Das heißt, der Kurs richtet sich nicht an Programmier-Anfänger.
 
 ### Voraussetzungen
 
-❗ Variablen erstellen und verwenden
-❗ If-Abfragen, Schleifen und logische Ausdrücke
-❗ Eigene Funktionen und Klassen implementieren
-❗ Das Importieren aus externen Paketen
+❗ Variablen erstellen und verwenden  
+❗ If-Abfragen, Schleifen und logische Ausdrücke  
+❗ Eigene Funktionen und Klassen implementieren  
+❗ Das Importieren aus externen Paketen  
 
 ### Dieser Kurs besteht aus folgenden Themengebieten
 
@@ -40,7 +40,7 @@ Das heißt, der Kurs richtet sich nicht an Programmier-Anfänger.
 ☑️Coding Guidelines und Good Practice Programmierung (PEP8)  
 ☑️Debugging, Logging, Profiling, Timing und Unit Testing  
 ☑️Erstellen eigener Packages und Dokumentationen  
-☑️Die Einbindung von Cython  
+☑️Die Einbindung von Cython und Numba  
 ☑️Multiprocessing und Multithreading in Python  
 ☑️ Die Verwendung der Python C API  
 
