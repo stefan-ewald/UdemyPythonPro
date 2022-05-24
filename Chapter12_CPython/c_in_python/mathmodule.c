@@ -28,14 +28,13 @@ static PyObject *method_add(PyObject *self, PyObject *args)
         PyObject *item_a = PyList_GetItem(list_a, i);
         PyObject *item_b = PyList_GetItem(list_b, i);
 
-        if ((!PyLong_Check(item_a) && (!PyLong_Check(item_b))))
+        if (!PyLong_Check(item_a) && !PyLong_Check(item_b))
         {
             PyErr_SetString(PyExc_ValueError, "Items must be integers..");
             return NULL;
         }
 
-        long sum = PyLong_AsLong(item_a) + PyLong_AsLong(item_b);
-        PyList_SetItem(result, i, PyLong_FromLong(sum));
+        PyList_SetItem(result, i, PyNumber_Add(item_a, item_b));
     }
 
     return result;
@@ -43,7 +42,7 @@ static PyObject *method_add(PyObject *self, PyObject *args)
 
 static PyObject *method_clip(PyObject *self, PyObject *args)
 {
-    PyObject *list = NULL;
+    PyObject *const list = NULL;
     long min_value = 0;
     long max_value = 0;
 
@@ -54,31 +53,27 @@ static PyObject *method_clip(PyObject *self, PyObject *args)
         return NULL;
     }
 
-    Py_ssize_t len = PyList_Size(list);
-    long temp = 0;
+    const Py_ssize_t len = PyList_Size(list);
 
     for (Py_ssize_t i = 0U; i < len; ++i)
     {
-        PyObject *item = PyList_GetItem(list, i);
+        const PyObject *const item = PyList_GetItem(list, i);
 
         if (!PyLong_Check(item))
         {
-            PyErr_SetString(PyExc_ValueError, "Items must be integers.");
-
+            PyErr_SetString(PyExc_ValueError, "Items must be integer..");
             return NULL;
         }
 
-        temp = PyLong_AsLong(item);
+        const long temp = PyLong_AsLong(item);
 
         if (temp < min_value)
         {
-            temp = min_value;
-            PyList_SetItem(list, i, PyLong_FromLong(temp));
+            PyList_SetItem(list, i, PyLong_FromLong(min_value));
         }
         else if (temp > max_value)
         {
-            temp = max_value;
-            PyList_SetItem(list, i, PyLong_FromLong(temp));
+            PyList_SetItem(list, i, PyLong_FromLong(max_value));
         }
     }
 
