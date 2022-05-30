@@ -8,7 +8,7 @@ class User(NamedTuple):
     age: int = 27
 
 
-class Point2D(TypedDict):
+class Point2D(TypedDict, total=False):
     x: int
     y: int
     label: Union[str, int]
@@ -25,10 +25,10 @@ def main() -> None:
     b: Point2D = {"x": 1, "y": 2, "label": 2}  # OK
     print(b)
 
-    # c: Point2D = {"x": 0, "label": "bad"}  # Fails type check
-    # print(c)
+    c: Point2D = {"x": 0, "label": "bad"}  # Fails type check
+    print(c)
 
-    # print(c.keys(), c.values(), c.items())
+    print(c.keys(), c.values(), c.items())
 
 
 if __name__ == "__main__":

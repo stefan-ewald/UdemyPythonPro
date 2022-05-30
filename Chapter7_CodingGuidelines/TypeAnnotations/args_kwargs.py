@@ -2,9 +2,10 @@ from __future__ import annotations
 
 from typing import Any
 from typing import Callable
+from typing import Union
 
 
-def f(*args: int, **kwargs: int) -> None:
+def f(*args: int, **kwargs: Union[int , float]) -> None:
     print(f"{args}, {kwargs}")
 
 
