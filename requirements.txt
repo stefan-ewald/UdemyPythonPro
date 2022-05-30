@@ -11,6 +11,7 @@ numba
 numpy
 snakeviz
 matplotlib
+pyinstrument
 
 # Testing
 pytest
