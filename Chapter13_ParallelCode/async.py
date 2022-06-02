@@ -42,8 +42,12 @@ async def main_future() -> int:
     return 0
 
 
-if __name__ == "__main__":
+def main() -> None:
     # code = asyncio.run(main_await())
     # code = asyncio.run(main_task())
     code = asyncio.run(main_future())
     sys.exit(code)
+
+
+if __name__ == "__main__":
+    main()
