@@ -14,11 +14,10 @@ async def main1():
 
 
 async def main2():
-    L = await asyncio.gather(
-        f("A"),
-        f("B"),
-        f("C"),
-    )
+    L = await asyncio.gather(f("A"), f("B"), f("C"))
+
+    my_tasks = [f("A"), f("B"), f("C")]
+    L = await asyncio.gather(*my_tasks)
     print(L)
 
 
